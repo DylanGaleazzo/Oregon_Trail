@@ -130,9 +130,9 @@ int main()
 	//********************************************************//
 	// create leader and people
 
-	string leaderName;
+	string memberName;
 	cout << "What is the first name of the " << endl << "wagon leader ? ";
-	cin >> leaderName;
+	cin >> memberName;
 
 	//********************************************************//
 	// 
