@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Extra_Functions.h" />
     <ClCompile Include="People.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Wagon.cpp" />
