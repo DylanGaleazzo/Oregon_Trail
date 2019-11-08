@@ -70,7 +70,7 @@ inline int Wagon::get_People_Alive()
 	return peopleAlive;
 }
 
-inline void Wagon::kill_Person()
+void Wagon::kill_Person()
 {
 	peopleAlive--;
 }

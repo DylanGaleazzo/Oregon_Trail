@@ -131,9 +131,13 @@ int main()
 	// create leader and people
 
 	string memberName;
-	cout << "What is the first name of the " << endl << "wagon leader ? ";
-	cin >> memberName;
-
+	People group[5];
+	for (int i = 0; i < 5; i++)
+	{
+		cout << "What is the first name of the " << endl << "wagon leader ? ";
+		cin >> memberName;
+		group[i].set_Name(memberName);
+	}
 	//********************************************************//
 	// 
 
