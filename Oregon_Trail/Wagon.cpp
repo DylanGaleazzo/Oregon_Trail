@@ -22,7 +22,6 @@ Wagon::Wagon(string occupation, double money, int oxen, int food, int clothing, 
 	this->clothing = clothing;
 	this->ammunition = ammunition;
 	this->parts = parts;
-
 }
 
 Wagon::~Wagon()

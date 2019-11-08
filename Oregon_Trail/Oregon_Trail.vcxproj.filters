@@ -24,15 +24,12 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Extra_Functions.h">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="DifferenceInOccupations.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="SelectingOccupations.txt">
+    <Text Include="SelectingOccupation.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
