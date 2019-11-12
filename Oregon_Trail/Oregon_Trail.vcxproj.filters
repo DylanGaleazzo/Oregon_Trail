@@ -24,12 +24,18 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="All_Functions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="DifferenceInOccupations.txt">
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="SelectingOccupation.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\..\..\..\Downloads\RandomTextNotNeededInOwnTxtFile.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
