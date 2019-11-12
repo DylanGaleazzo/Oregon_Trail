@@ -29,37 +29,37 @@ Wagon::~Wagon()
 	cout << "Wagon destroyed" << endl;
 }
 
-inline string Wagon::get_Occupation()
+string Wagon::get_Occupation()
 {
 	return this->occupation;
 }
 
-inline double Wagon::get_Money()
+double Wagon::get_Money()
 {
 	return money;
 }
 
-inline int Wagon::get_Oxen()
+int Wagon::get_Oxen()
 {
 	return oxen;
 }
 
-inline int Wagon::get_Food()
+int Wagon::get_Food()
 {
 	return food;
 }
 
-inline int Wagon::get_Clothing()
+int Wagon::get_Clothing()
 {
 	return clothing;
 }
 
-inline int Wagon::get_Ammunition()
+int Wagon::get_Ammunition()
 {
 	return ammunition;
 }
 
-inline int Wagon::get_Parts()
+int Wagon::get_Parts()
 {
 	return parts;
 }

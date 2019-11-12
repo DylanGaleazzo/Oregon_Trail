@@ -22,7 +22,7 @@ string People::get_Name()
 	return this->name;
 }
 
-inline bool People::get_Alive_Status()
+bool People::get_Alive_Status()
 {
 	return this->isAlive;
 }
