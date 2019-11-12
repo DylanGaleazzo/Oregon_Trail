@@ -14,11 +14,12 @@ void read_text(string fileName)
 	string line;
 	ifstream fin;
 	fin.open(fileName, ios::out); // Open document for output only
-	while (!fin.eof()) // Read the lines until it reaches the end of the file
-	{
-		getline(fin, line); // load text to line
-		cout << line << endl; // print line to screen
-	}
+	
+		while (!fin.eof()) // Read the lines until it reaches the end of the file
+		{
+			getline(fin, line); // load text to line
+			cout << line << endl; // print line to screen
+		}
 	fin.close(); // Close document being read
 }
 
@@ -102,6 +103,49 @@ void travel_troubles(People* person, Wagon* wagon) // randomly throw an ailment
 	}
 }
 
+int randomly_choose_person(Wagon* wagon)
+{
+	int numOfPeople = wagon->get_People_Alive();
+	if (numOfPeople > 1)
+	{
+		int rand = generate_random(2, numOfPeople);
+		return rand;
+	}
+	else
+	{
+		return 1;
+	}
+
+}
+
+void general_store(Wagon* wagon)
+{
+	char cont;
+	cout << "It is 1848. Your jumping off" << endl <<
+		"place for Oregon is Independence," << endl <<
+		"Missouri.You are leaving in" << endl <<
+		"April because there will be" << endl <<
+		"green grass for your oxen to" << endl <<
+		"eat and the weather will still" << endl <<
+		"be cool." << endl << "Enter c to continue" << endl;
+	cin >> cont;
+	std::system("CLS"); // clear the command window
+
+	cout << "Before leaving Independence you" << endl <<
+		"should buy equipment and" << endl <<
+		"supplies.You have $"<< wagon->get_Money() <<" in" << endl <<
+		"cash, but you don't have to" << endl <<
+		"spend it all now. " << endl << endl <<
+		"You can buy whatever you need at" << endl <<
+		"Dylan's General Store." << endl << 
+		"Enter c to continue" << endl;
+
+	cin >> cont;
+	std::system("CLS"); // clear the command window
+
+
+}
+
 int main()
 {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -139,7 +183,7 @@ int main()
 	group[0].set_Name(memberName);
 	for (int i = 1; i < 5; i++)
 	{
-		cout << "What is the full name of member " << i + 1 << "? ";
+		cout << "What is the first name of member " << i + 1 << " in your party? ";
 		getline(cin, memberName);
 		group[i].set_Name(memberName);
 	}

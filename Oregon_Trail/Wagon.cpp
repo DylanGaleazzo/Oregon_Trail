@@ -64,7 +64,7 @@ inline int Wagon::get_Parts()
 	return parts;
 }
 
-inline int Wagon::get_People_Alive()
+int Wagon::get_People_Alive()
 {
 	return peopleAlive;
 }
