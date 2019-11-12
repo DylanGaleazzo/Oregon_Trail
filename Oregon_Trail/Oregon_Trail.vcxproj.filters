@@ -32,6 +32,9 @@
     <Text Include="SelectingOccupation.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="..\..\..\..\Downloads\RandomTextNotNeededInOwnTxtFile.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="People.h">
