@@ -118,6 +118,47 @@ int randomly_choose_person(Wagon* wagon)
 
 }
 
+void independence_general_store_text(Wagon* wagon)
+{
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	char cont;
+	cout << "It is 1848. Your jumping off" << endl <<
+		"place for Oregon is Independence," << endl <<
+		"Missouri.You are leaving in" << endl <<
+		"April because there will be" << endl <<
+		"green grass for your oxen to" << endl <<
+		"eat and the weather will still" << endl <<
+		"be cool." << endl << "Enter c to continue" << endl;
+	cin >> cont;
+	std::system("CLS"); // clear the command window
+
+	cout << "Before leaving Independence you" << endl <<
+		"should buy equipment and" << endl <<
+		"supplies.You have $" << wagon->get_Money() << " in" << endl <<
+		"cash, but you don't have to" << endl <<
+		"spend it all now. " << endl << endl <<
+		"You can buy whatever you need at" << endl <<
+		"Dylan's General Store." << endl <<
+		"Enter c to continue" << endl;
+
+	cin >> cont;
+	std::system("CLS"); // clear the command window
+
+	SetConsoleTextAttribute(hConsole, 10); // Green text
+	read_text("Dylan_Talking.txt");
+	SetConsoleTextAttribute(hConsole, 15); // White text
+
+	cout<< "**********************************"
+		"Dylan's General Store"
+		"***********************************"
+		"1. Oxen                 $" <<
+		"2. Food                 $"0.00
+		"3. Clothing             $"0.00
+		"4. Ammunition           $"0.00
+		"5. Spare Parts          $"0.00
+		"***********************************"
+}
+
 void general_store(Wagon* wagon)
 {
 	char cont;
