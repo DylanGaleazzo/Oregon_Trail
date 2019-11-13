@@ -1,145 +1,136 @@
-//Dylan Galeazzo
-//Denise Valencia
-
 #include "Wagon.h"
 
 Wagon::Wagon()
 {
-	occupation = "Banker";
-	money = 16000.00;
-	peopleAlive = 5;
-	oxen = 0;
-	food = 0;
-	clothing = 0;
-	ammunition = 0;
-	food = 0;
-	rations = 1;
-	distance = 0;
+    occupation = "Banker";
+    money = 16000.00;
+    peopleAlive = 5;
+    oxen = 0;
+    food = 0;
+    clothing = 0;
+    ammunition = 0;
+    parts = 0;
 }
 
-Wagon::Wagon(string occupation, double money, int oxen, int food, int clothing, int ammunition)
+Wagon::Wagon(string occupation)
 {
-	this->occupation = occupation;
-	this->money = money;
-	peopleAlive = 5;
-	this->oxen = oxen;
-	this->food = food;
-	this->clothing = clothing;
-	this->ammunition = ammunition;
+
+    this->occupation = occupation;
+
+    if (occupation == "Banker")
+    {
+        money = 16000.00;
+    }
+    else if (occupation == "Carpenter")
+    {
+        money = 8000.00;
+    }
+    else if (occupation == "Farmer")
+    {
+        money = 4000.00;
+    }
+    else
+    {
+        throw occupation + " is invalid";
+        occupation = "Banker";
+    }
+
+    this->peopleAlive = 5;
+    this->oxen = 0;
+    this->food = 0;
+    this->clothing = 0;
+    this->ammunition = 0;
+    this->parts = 0;
+
+    string temp_name;
+    cout << "What is the leader of your wagons name?: ";
+    cin >> temp_name;
+    this->leader = temp_name;
+    this->people[0].set_name(temp_name);
+
+    cout << "Howdy " << temp_name << ", now name your wagon members: \n";
+    for (int i = 1; i < peopleAlive; i++)
+    {
+        cout << i << ": ";
+        cin >> temp_name;
+        this->people[i].set_name(temp_name);
+        // cout << "\n";
+    }
+}
+
+Wagon::Wagon(string occupation, double money, int oxen, int food, int clothing, int ammunition, int parts)
+{
+    this->occupation = occupation;
+    this->money = money;
+    peopleAlive = 5;
+    this->oxen = oxen;
+    this->food = food;
+    this->clothing = clothing;
+    this->ammunition = ammunition;
+    this->parts = parts;
 }
 
 Wagon::~Wagon()
 {
-	cout << "Wagon destroyed" << endl;
+    cout << "Wagon destroyed" << endl;
 }
 
-string Wagon::get_Occupation()
+inline string Wagon::get_Occupation()
 {
-	return this->occupation;
+    return this->occupation;
 }
 
-double Wagon::get_Money()
+inline double Wagon::get_Money()
 {
-	return money;
+    return money;
 }
 
-void Wagon::lose_Money(double num)
+inline int Wagon::get_Oxen()
 {
-	money = money - num;
-}
-int Wagon::get_Oxen()
-{
-	return oxen;
+    return oxen;
 }
 
-void Wagon::add_Oxen(int num)
+inline int Wagon::get_Food()
 {
-	oxen = num + oxen;
+    return food;
 }
 
-int Wagon::get_Food()
+inline int Wagon::get_Clothing()
 {
-	return food;
+    return clothing;
 }
 
-void Wagon::add_Food(int num)
+inline int Wagon::get_Ammunition()
 {
-	food = num + food;
+    return ammunition;
 }
 
-int Wagon::get_Clothing()
+inline int Wagon::get_Parts()
 {
-	return clothing;
+    return parts;
 }
 
-void Wagon::add_Clothing(int num)
+inline int Wagon::get_People_Alive()
 {
-	clothing = num + clothing;
+    return peopleAlive;
 }
 
-int Wagon::get_Ammunition()
+inline void Wagon::kill_Person()
 {
-	return ammunition;
+    peopleAlive--;
 }
 
-void Wagon::add_Ammunition(int num)
+ostream &operator<<(ostream &os, const Wagon &w)
 {
-	ammunition = num + ammunition;
-}
+    os << w.leader << " the " << w.occupation << "'s wagon.\n\n";
+    for (int i = 0; i < w.peopleAlive; i++)
+    {
+        if (!w.people[i].ailment)
+            os << w.people[i] << "\n";
+    }
 
-void Wagon::lose_Ammunition()
-{
-	ammunition--;
-}
+    os << "Resources:"
+       << "\nOxen: " << w.oxen << "\nFood: " << w.food << "\nClothing: " << w.clothing << "\nAmmunition: " << w.ammunition << "\nParts: " << w.parts;
 
-int Wagon::get_Distance()
-{
-	return distance;
-}
-
-int Wagon::get_Rations()
-{
-	return rations;
-}
-
-void Wagon::change_Rations(int num)
-{
-	rations = num;
-}
-
-Date Wagon::get_Date()
-{
-	return date;
-}
-
-void Wagon::eat_Food()
-{
-	food -= peopleAlive * 7 * rations;
-}
-
-int Wagon::get_People_Alive()
-{
-	return peopleAlive;
-}
-
-void Wagon::kill_Person()
-{
-	peopleAlive--;
-}
-
-void Wagon::show_Supplies()
-{
-	string cont;
-	cout <<
-		"***********************************" << endl <<
-		"Your Supplies" << endl <<
-		"***********************************" << endl <<
-		"oxen              " << oxen << endl <<
-		"pounds of food    " << food << endl <<
-		"sets of clothing  " << clothing << endl <<
-		"bullets           " << ammunition << endl <<
-		"money             " << money << endl <<
-		"***********************************" << endl <<
-		"Press c to continue ";
-	cin >> cont;
+    return os;
 }

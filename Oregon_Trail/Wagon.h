@@ -1,47 +1,39 @@
-//Dylan Galeazzo
-//Denise Valencia
-//Anson Biggs
-#pragma once
-#include "date.h"
-#include <string>
+#include "Person.h"
+
 #include <iostream>
 using namespace std;
 
 class Wagon
 {
 private:
-	string occupation;
-	double money;
-	int peopleAlive;
-	int oxen;
-	int food;
-	int clothing;
-	int ammunition;
-	int rations;
-	int distance;
-	Date date;
+    string occupation;
+    string leader;
+    double money;
+
+    int peopleAlive;
+    Person people[5];
+
+    int oxen;
+    int food;
+    int clothing;
+    int ammunition;
+    int parts;
+
 public:
-	Wagon();
-	Wagon(string occupation, double money, int oxen, int food, int clothing, int ammunition);
-	~Wagon();
-	string get_Occupation();
-	double get_Money();
-	void lose_Money(double);
-	int get_People_Alive();
-	int get_Oxen();
-	void add_Oxen(int);
-	int get_Food();
-	void add_Food(int);
-	int get_Clothing();
-	void add_Clothing(int);
-	int get_Ammunition();
-	void add_Ammunition(int);
-	void lose_Ammunition();
-	int get_Rations();
-	void change_Rations(int);
-	int get_Distance();
-	Date get_Date();
-	void eat_Food();
-	void kill_Person();
-	void show_Supplies();
+    Wagon();
+    Wagon(string occupation);
+    Wagon(string occupation, double money, int oxen, int food, int clothing, int ammunition, int parts);
+    ~Wagon();
+    string get_Occupation();
+    double get_Money();
+    int get_People_Alive();
+    int get_Oxen();
+    int get_Food();
+    int get_Clothing();
+    int get_Ammunition();
+    int get_Parts();
+    void kill_Person();
+    void make_people();
+
+    friend ostream &operator<<(ostream &os, const Wagon &w);
 };
