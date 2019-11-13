@@ -1,8 +1,5 @@
 #include "All_Functions.cpp"
-
 using namespace std;
-
-
 
 int main()
 {
