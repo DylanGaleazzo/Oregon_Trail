@@ -143,15 +143,47 @@ void independence_general_store_text(Wagon* wagon)
 	read_text("Dylan_Talking.txt");
 	SetConsoleTextAttribute(hConsole, 15); // White text
 
-	cout << "**********************************"
-		"Dylan's General Store"
-		"***********************************"
-		"1. Oxen                 $" <<
-		"2. Food                 $"0.00
-		"3. Clothing             $"0.00
-		"4. Ammunition           $"0.00
-		"5. Spare Parts          $"0.00
-		"***********************************"
+	double moneyTotalOxen = 0.00;
+	double moneyTotalFood = 0.00;
+	double moneyTotalClothing = 0.00;
+	double moneyTotalAmmunition = 0.00;
+	int selection;
+	 // loop until they want to stop 
+	cout << "**********************************" << endl <<
+		"Dylan's General Store" << endl <<
+		"***********************************" << endl <<
+		"1. Oxen                 $" << moneyTotalOxen << endl <<
+		"2. Food                 $" << moneyTotalFood << endl <<
+		"3. Clothing             $" << moneyTotalClothing << endl <<
+		"4. Ammunition           $" << moneyTotalAmmunition << endl <<
+		"***********************************" << endl << endl <<
+		"Amount of money you have: " << wagon->get_Money() << endl <<
+		"What would you like to buy? ";
+	cin << selection;
+	switch (selection)
+	{
+	case 1:
+		std::system("CLS"); // clear the command window
+		read_text("Oxen.txt");
+		cin << ;
+		break;
+	case 2:
+		std::system("CLS"); // clear the command window
+		read_text("Food.txt");
+		cin << ;
+		break;
+	case 3:
+		std::system("CLS"); // clear the command window
+		read_text("Clothing.txt");
+		cin << ;
+		break;
+	case 4:
+		std::system("CLS"); // clear the command window
+		read_text("Ammunition.txt");
+		cin << ;
+		break;
+	}
+
 }
 
 void general_store(Wagon* wagon)

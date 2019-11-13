@@ -1,0 +1,10 @@
+**********************************
+      Dylan's General Store
+**********************************
+
+   There are 2 oxen in a yoke;
+   I recommend at least 3 yoke.
+   I charge $40 a yoke.
+
+   How many yoke do you 
+   want? 

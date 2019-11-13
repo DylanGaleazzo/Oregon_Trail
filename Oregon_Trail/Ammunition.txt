@@ -1,0 +1,10 @@
+**********************************
+      Dylan's General Store
+**********************************
+
+   I sell ammunition in boxes
+   of 20 bullets. Each box
+   costs $2.00.
+
+   How many boxes do you 
+   want?
