@@ -4,7 +4,7 @@ Wagon::Wagon()
 {
     occupation = "Banker";
     money = 16000.00;
-    peopleAlive = 5;
+    people_alive = 5;
     oxen = 0;
     food = 0;
     clothing = 0;
@@ -35,7 +35,7 @@ Wagon::Wagon(string occupation)
         occupation = "Banker";
     }
 
-    this->peopleAlive = 5;
+    this->people_alive = 5;
     this->oxen = 0;
     this->food = 0;
     this->clothing = 0;
@@ -50,7 +50,7 @@ Wagon::Wagon(string occupation)
     this->people[0].set_name(temp_name);
 
     cout << "Howdy " << temp_name << ", now name your wagon members: \n";
-    for (int i = 1; i < peopleAlive; i++)
+    for (int i = 1; i < people_alive; i++)
     {
         cout << i << ": ";
         cin >> temp_name;
@@ -63,7 +63,7 @@ Wagon::Wagon(string occupation, double money, int oxen, int food, int clothing, 
 {
     this->occupation = occupation;
     this->money = money;
-    peopleAlive = 5;
+    people_alive = 5;
     this->oxen = oxen;
     this->food = food;
     this->clothing = clothing;
@@ -76,55 +76,20 @@ Wagon::~Wagon()
     cout << "Wagon destroyed" << endl;
 }
 
-inline string Wagon::get_Occupation()
+string Wagon::get_occupation() { return this->occupation; }
+string Wagon::get_leader() { return this->leader; }
+Person Wagon::get_person(int index) { return this->people[index]; }
+int Wagon::alive_count() { return this->people_alive; }
+void Wagon::kill_person(int index)
 {
-    return this->occupation;
-}
-
-inline double Wagon::get_Money()
-{
-    return money;
-}
-
-inline int Wagon::get_Oxen()
-{
-    return oxen;
-}
-
-inline int Wagon::get_Food()
-{
-    return food;
-}
-
-inline int Wagon::get_Clothing()
-{
-    return clothing;
-}
-
-inline int Wagon::get_Ammunition()
-{
-    return ammunition;
-}
-
-inline int Wagon::get_Parts()
-{
-    return parts;
-}
-
-inline int Wagon::get_People_Alive()
-{
-    return peopleAlive;
-}
-
-inline void Wagon::kill_Person()
-{
-    peopleAlive--;
+    people[index].~Person();
+    people_alive--;
 }
 
 ostream &operator<<(ostream &os, const Wagon &w)
 {
     os << w.leader << " the " << w.occupation << "'s wagon.\n\n";
-    for (int i = 0; i < w.peopleAlive; i++)
+    for (int i = 0; i < w.people_alive; i++)
     {
         if (!w.people[i].ailment)
             os << w.people[i] << "\n";
@@ -135,9 +100,3 @@ ostream &operator<<(ostream &os, const Wagon &w)
 
     return os;
 }
-
-void Wagon::add_Clothing(int c) { this->clothing = c + this->clothing; }
-void Wagon::lose_money(int m) { this->money = m + this->money; }
-void Wagon::add_oxen(int o) { this->oxen = o + this->oxen; }
-void Wagon::lose_Ammunition(int a) { this->ammunition = a + this->ammunition; }
-void Wagon::change_Rations(int r) { this->rations = r; }
