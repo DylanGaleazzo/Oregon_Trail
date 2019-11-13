@@ -48,9 +48,19 @@ int Wagon::get_Oxen()
 	return oxen;
 }
 
+void Wagon::add_Oxen(int num)
+{
+	oxen = num + oxen;
+}
+
 int Wagon::get_Food()
 {
 	return food;
+}
+
+void Wagon::add_Food(int num)
+{
+	food = num + food;
 }
 
 int Wagon::get_Clothing()
@@ -58,9 +68,19 @@ int Wagon::get_Clothing()
 	return clothing;
 }
 
+void Wagon::add_Clothing(int num)
+{
+	clothing = num + clothing;
+}
+
 int Wagon::get_Ammunition()
 {
 	return ammunition;
+}
+
+void Wagon::add_Ammunition(int num)
+{
+	ammunition = num + ammunition;
 }
 
 int Wagon::get_Pace()

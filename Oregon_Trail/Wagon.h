@@ -27,9 +27,13 @@ public:
 	double get_Money();
 	int get_People_Alive();
 	int get_Oxen();
+	void add_Oxen(int);
 	int get_Food();
+	void add_Food(int);
 	int get_Clothing();
+	void add_Clothing(int);
 	int get_Ammunition();
+	void add_Ammunition(int);
 	int get_Pace();
 	int get_Rations();
 	int get_Distance();

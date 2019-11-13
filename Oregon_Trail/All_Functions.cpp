@@ -182,7 +182,7 @@ void independence_general_store_text(Wagon* wagon)
 			cin >> numOfItemsWanted;
 			if (numOfItemsWanted * independenceGeneralStore.get_Price_Oxen() + moneyTotalSpent <= wagon->get_Money)
 			{
-
+				wagon->numOfItemsWanted
 			}
 			break;
 		case 2:
