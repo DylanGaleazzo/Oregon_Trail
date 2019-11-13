@@ -9,6 +9,7 @@
 #include "Wagon.h"
 #include "People.h"
 #include "Landmark.h"
+#include "General_Store.h"
 
 void read_text(string fileName)
 {
@@ -122,6 +123,7 @@ int randomly_choose_person(Wagon* wagon)
 void independence_general_store_text(Wagon* wagon)
 {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	General_Store independenceGeneralStore();
 	string cont;
 	cout << "It is 1848. Your jumping off" << endl <<
 		"place for Oregon is Independence," << endl <<
@@ -153,43 +155,55 @@ void independence_general_store_text(Wagon* wagon)
 	double moneyTotalFood = 0.00;
 	double moneyTotalClothing = 0.00;
 	double moneyTotalAmmunition = 0.00;
+	double moneyTotalSpent = moneyTotalOxen + moneyTotalFood + moneyTotalClothing + moneyTotalAmmunition;
 	int selection;
+	int numOfItemsWanted;
+	bool loop = true;
 	 // loop until they want to stop 
-	cout << "**********************************" << endl <<
-		"Dylan's General Store" << endl <<
-		"***********************************" << endl <<
-		"1. Oxen                 $" << moneyTotalOxen << endl <<
-		"2. Food                 $" << moneyTotalFood << endl <<
-		"3. Clothing             $" << moneyTotalClothing << endl <<
-		"4. Ammunition           $" << moneyTotalAmmunition << endl <<
-		"***********************************" << endl << endl <<
-		"Amount of money you have: " << wagon->get_Money() << endl <<
-		"What would you like to buy? ";
-	cin >> selection;
-	switch (selection)
+	do
 	{
-	case 1:
-		std::system("CLS"); // clear the command window
-		read_text("Oxen.txt");
-		cin >> ;
-		break;
-	case 2:
-		std::system("CLS"); // clear the command window
-		read_text("Food.txt");
-		cin >> ;
-		break;
-	case 3:
-		std::system("CLS"); // clear the command window
-		read_text("Clothing.txt");
-		cin >> ;
-		break;
-	case 4:
-		std::system("CLS"); // clear the command window
-		read_text("Ammunition.txt");
-		cin >> ;
-		break;
-	}
+		cout << "**********************************" << endl <<
+			"Dylan's General Store" << endl <<
+			"***********************************" << endl <<
+			"1. Oxen                 $" << moneyTotalOxen << endl <<
+			"2. Food                 $" << moneyTotalFood << endl <<
+			"3. Clothing             $" << moneyTotalClothing << endl <<
+			"4. Ammunition           $" << moneyTotalAmmunition << endl <<
+			"***********************************" << endl << endl <<
+			"Amount of money you have: " << wagon->get_Money() << endl <<
+			"Select 5 to exit the store" << endl <<
+			"What would you like to buy? ";
+		cin >> selection;
+		switch (selection)
+		{
+		case 1:
+			std::system("CLS"); // clear the command window
+			read_text("Oxen.txt");
+			cin >> numOfItemsWanted;
+			if (numOfItemsWanted * independenceGeneralStore.get_Price_Oxen() + moneyTotalSpent <= wagon->get_Money)
+			{
 
+			}
+			break;
+		case 2:
+			std::system("CLS"); // clear the command window
+			read_text("Food.txt");
+			cin >> numOfItemsWanted;
+			break;
+		case 3:
+			std::system("CLS"); // clear the command window
+			read_text("Clothing.txt");
+			cin >> numOfItemsWanted;
+			break;
+		case 4:
+			std::system("CLS"); // clear the command window
+			read_text("Ammunition.txt");
+			cin >> numOfItemsWanted;
+			break;
+		default:
+			loop = false
+		}
+	} while (loop);
 }
 
 void general_store(Wagon* wagon)
