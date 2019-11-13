@@ -10,7 +10,7 @@ private:
     string leader;
     double money;
 
-    int peopleAlive;
+    int people_alive;
     Person people[5];
 
     int oxen;
