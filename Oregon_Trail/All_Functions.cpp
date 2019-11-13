@@ -34,7 +34,7 @@ string set_occupation(void)
 
 	do
 	{
-		read_text("SelectingOccupation.txt");
+		read_text("Selecting_Occupation.txt");
 		cin >> choice;
 
 		std::system("CLS"); // clear the command window
@@ -54,7 +54,7 @@ string set_occupation(void)
 			loop = false;
 			break;
 		case 4:
-			read_text("DifferenceInOccupations.txt");
+			read_text("Difference_In_Occupations.txt");
 			cin >> cont;
 		default:
 			loop = true;
@@ -307,22 +307,28 @@ void hunting(Wagon* wagon)
 {
 	string shot;
 	int foodCaught;
+	string cont;
 	std::system("CLS"); // clear the command window
 	cout << "To hunt, type bang as fast as possible in hope of catching game." << endl;
-	getline(cin, shot, 'bang');
+	cin >> shot;
 	wagon->lose_Ammunition();
 	if (shot == "bang")
 	{
 		foodCaught = generate_random(0, 100);
 		wagon->add_Food(foodCaught);
-		cout << " You caught " << foodCaught << " pounds of food.";
+		cout << " You caught " << foodCaught << " pounds of food." << endl <<
+			"Press c to continue";
+		getline(cin, cont, 'c');
 	}
 	else
 	{
-		cout << " Oh no!! You missed!!";
+		cout << " Oh no!! You missed!!" << endl <<
+			"Press c to continue";
+		getline(cin, cont, 'c');
 	}
 	std::system("CLS"); // clear the command window
 }
+
 
 void arrived_At_Fort_Or_River(LandMark* landmark)
 {

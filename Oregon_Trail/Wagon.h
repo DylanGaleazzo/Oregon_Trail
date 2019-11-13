@@ -3,6 +3,8 @@
 //Anson Biggs
 #pragma once
 #include "date.h"
+#include <string>
+#include <iostream>
 using namespace std;
 
 class Wagon
@@ -42,4 +44,5 @@ public:
 	Date get_Date();
 	void eat_Food();
 	void kill_Person();
+	void show_Supplies();
 };

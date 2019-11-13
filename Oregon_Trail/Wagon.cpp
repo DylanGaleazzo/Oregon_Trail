@@ -126,3 +126,20 @@ void Wagon::kill_Person()
 {
 	peopleAlive--;
 }
+
+void Wagon::show_Supplies()
+{
+	string cont;
+	cout <<
+		"***********************************" << endl <<
+		"Your Supplies" << endl <<
+		"***********************************" << endl <<
+		"oxen              " << oxen << endl <<
+		"pounds of food    " << food << endl <<
+		"sets of clothing  " << clothing << endl <<
+		"bullets           " << ammunition << endl <<
+		"money             " << money << endl <<
+		"***********************************" << endl <<
+		"Press c to continue ";
+	cin >> cont;
+}
