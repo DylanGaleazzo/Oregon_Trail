@@ -170,7 +170,7 @@ void independence_general_store_text(Wagon* wagon)
 			"3. Clothing             $" << moneyTotalClothing << endl <<
 			"4. Ammunition           $" << moneyTotalAmmunition << endl <<
 			"***********************************" << endl << endl <<
-			"Amount of money you have: " << wagon->get_Money() << endl <<
+			"Amount of money you have: " << wagon->get_Money() - moneyTotalSpent << endl <<
 			"Select 5 to exit the store" << endl <<
 			"What would you like to buy? ";
 		cin >> selection;
@@ -182,28 +182,48 @@ void independence_general_store_text(Wagon* wagon)
 			cin >> numOfItemsWanted;
 			if (numOfItemsWanted * independenceGeneralStore.get_Price_Oxen() + moneyTotalSpent <= wagon->get_Money)
 			{
-				wagon->numOfItemsWanted
+				wagon->add_Oxen(numOfItemsWanted);
+				moneyTotalOxen = numOfItemsWanted * independenceGeneralStore.get_Price_Oxen();
 			}
 			break;
 		case 2:
 			std::system("CLS"); // clear the command window
 			read_text("Food.txt");
 			cin >> numOfItemsWanted;
+			if (numOfItemsWanted * independenceGeneralStore.get_Price_Food() + moneyTotalSpent <= wagon->get_Money)
+			{
+				wagon->add_Food(numOfItemsWanted);
+				moneyTotalFood = numOfItemsWanted * independenceGeneralStore.get_Price_Food();
+			}
 			break;
 		case 3:
 			std::system("CLS"); // clear the command window
 			read_text("Clothing.txt");
 			cin >> numOfItemsWanted;
+			if (numOfItemsWanted * independenceGeneralStore.get_Price_Clothing() + moneyTotalSpent <= wagon->get_Money)
+			{
+				wagon->add_Clothing(numOfItemsWanted);
+				moneyTotalClothing = numOfItemsWanted * independenceGeneralStore.get_Price_Clothing();
+			}
 			break;
 		case 4:
 			std::system("CLS"); // clear the command window
 			read_text("Ammunition.txt");
 			cin >> numOfItemsWanted;
+			if (numOfItemsWanted * independenceGeneralStore.get_Price_Ammunition() + moneyTotalSpent <= wagon->get_Money)
+			{
+				wagon->add_Ammunition(numOfItemsWanted);
+				moneyTotalAmmunition = numOfItemsWanted * independenceGeneralStore.get_Price_Ammunition();
+			}
 			break;
 		default:
 			loop = false
 		}
+		moneyTotalSpent = moneyTotalOxen + moneyTotalFood + moneyTotalClothing + moneyTotalAmmunition;
 	} while (loop);
+
+	wagon->lose_Money(moneyTotalSpent);
+
 }
 
 void general_store(Wagon* wagon)

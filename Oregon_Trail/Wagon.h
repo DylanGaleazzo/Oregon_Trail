@@ -25,6 +25,7 @@ public:
 	~Wagon();
 	string get_Occupation();
 	double get_Money();
+	double lose_Money(double);
 	int get_People_Alive();
 	int get_Oxen();
 	void add_Oxen(int);

@@ -43,6 +43,10 @@ double Wagon::get_Money()
 	return money;
 }
 
+double Wagon::lose_Money(double num)
+{
+	money = money - num;
+}
 int Wagon::get_Oxen()
 {
 	return oxen;
