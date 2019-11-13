@@ -1,11 +1,10 @@
 #include "All_Functions.cpp"
-
 using namespace std;
-
-
 
 int main()
 {
+	cout << std::fixed;
+	cout << setprecision(2);
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	//********************************************************//
 	// create wagon
@@ -27,7 +26,7 @@ int main()
 		wagonMoney = 400;
 	}
 
-	Wagon wagon(occupation, wagonMoney, 0, 0, 0, 0, 0);
+	Wagon wagon(occupation, wagonMoney, 0, 0, 0, 0);
 
 
 	//********************************************************//

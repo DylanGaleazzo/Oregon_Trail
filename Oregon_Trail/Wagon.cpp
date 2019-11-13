@@ -9,10 +9,12 @@ Wagon::Wagon()
 	food = 0;
 	clothing = 0;
 	ammunition = 0;
-	parts = 0;
+	pace = 1;
+	food = 0;
+	distance = 0;
 }
 
-Wagon::Wagon(string occupation, double money, int oxen, int food, int clothing, int ammunition, int parts)
+Wagon::Wagon(string occupation, double money, int oxen, int food, int clothing, int ammunition)
 {
 	this->occupation = occupation;
 	this->money = money;
@@ -21,7 +23,6 @@ Wagon::Wagon(string occupation, double money, int oxen, int food, int clothing, 
 	this->food = food;
 	this->clothing = clothing;
 	this->ammunition = ammunition;
-	this->parts = parts;
 }
 
 Wagon::~Wagon()
@@ -59,9 +60,24 @@ int Wagon::get_Ammunition()
 	return ammunition;
 }
 
-int Wagon::get_Parts()
+int Wagon::get_Pace()
 {
-	return parts;
+	return pace;
+}
+
+int Wagon::get_Distance()
+{
+	return distance;
+}
+
+int Wagon::get_Rations()
+{
+	return rations;
+}
+
+void Wagon::eat_Food()
+{
+	food -= peopleAlive * 7 * rations;
 }
 
 int Wagon::get_People_Alive()

@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="All_Functions.cpp" />
+    <ClCompile Include="Landmark.cpp" />
     <ClCompile Include="People.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Wagon.cpp" />
@@ -134,6 +135,7 @@
     <Text Include="SelectingOccupation.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Landmark.h" />
     <ClInclude Include="People.h" />
     <ClInclude Include="Wagon.h" />
   </ItemGroup>
