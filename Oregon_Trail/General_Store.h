@@ -11,7 +11,6 @@ private:
 	double priceFood;
 	double priceClothing;
 	double priceAmmunition;
-	double priceParts;
 public:
 	General_Store();
 	~General_Store();
@@ -20,6 +19,5 @@ public:
 	double get_Price_Food();
 	double get_Price_Clothing();
 	double get_Price_Ammunition();
-	double get_Price_Parts();
-	double change_Total();
+	double change_Total(double);
 };
