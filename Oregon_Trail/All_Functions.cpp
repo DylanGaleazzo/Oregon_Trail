@@ -2,6 +2,7 @@
 #include <stdlib.h> // For clearing the command window
 #include <vector> // For ailment vector
 #include <Windows.h> // For colored lines
+#include <iomanip>      // std::setprecision
 #include "Wagon.h"
 #include "People.h"
 void read_text(string fileName)
