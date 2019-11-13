@@ -225,8 +225,8 @@ void independence_general_store_text(Wagon* wagon, General_Store* store)
 	wagon->lose_Money(moneyTotalSpent);
 
 	cout << "Well then, you're ready" << endl <<
-		"to start.Good luck!" << endl <<
-		"You have a longand" << endl <<
+		"to start. Good luck!" << endl <<
+		"You have a long and" << endl <<
 		"difficult journey ahead" << endl <<
 		"of you." << endl;
 
@@ -234,28 +234,6 @@ void independence_general_store_text(Wagon* wagon, General_Store* store)
 
 void general_store(Wagon* wagon)
 {
-	string cont;
-	cout << "It is 1848. Your jumping off" << endl <<
-		"place for Oregon is Independence," << endl <<
-		"Missouri.You are leaving in" << endl <<
-		"April because there will be" << endl <<
-		"green grass for your oxen to" << endl <<
-		"eat and the weather will still" << endl <<
-		"be cool." << endl << "Press c to continue" << endl;
-	getline(cin, cont, 'c');
-	std::system("CLS"); // clear the command window
-
-	cout << "Before leaving Independence you" << endl <<
-		"should buy equipment and" << endl <<
-		"supplies.You have $" << wagon->get_Money() << " in" << endl <<
-		"cash, but you don't have to" << endl <<
-		"spend it all now. " << endl << endl <<
-		"You can buy whatever you need at" << endl <<
-		"Dylan's General Store." << endl <<
-		"Press c to continue" << endl;
-
-	getline(cin, cont, 'c');
-	std::system("CLS"); // clear the command window
 
 
 }

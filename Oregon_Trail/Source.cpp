@@ -47,6 +47,6 @@ int main()
 		group[i].set_Name(memberName);
 	}
 	//********************************************************/
-	// 
-
+	// getting firsst rround of supplies
+	independence_general_store_text(&wagon, &store);
 }
