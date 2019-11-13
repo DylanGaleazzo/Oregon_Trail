@@ -130,7 +130,6 @@
     <ClCompile Include="Wagon.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\..\..\Downloads\RandomTextNotNeededInOwnTxtFile.txt" />
     <Text Include="DifferenceInOccupations.txt" />
     <Text Include="SelectingOccupation.txt" />
   </ItemGroup>

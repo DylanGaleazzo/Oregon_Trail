@@ -2,7 +2,7 @@
 class River
 {
 private:
-	Wagon wagon;
+	
 public:
 	
 };

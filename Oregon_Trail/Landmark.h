@@ -12,5 +12,10 @@ public:
 
 Fort::Fort()
 {
-	cout << "Fort initialized";
+	cout << "Welcome to the Fort" << endl;
+}
+
+ostream& operator<<(ostream& os, const Fort&)
+{
+	cout << 
 }
