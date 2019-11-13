@@ -35,6 +35,7 @@ public:
 	void add_Clothing(int);
 	int get_Ammunition();
 	void add_Ammunition(int);
+	void lose_Ammunition();
 	int get_Pace();
 	int get_Rations();
 	int get_Distance();

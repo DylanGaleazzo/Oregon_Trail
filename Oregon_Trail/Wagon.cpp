@@ -87,6 +87,11 @@ void Wagon::add_Ammunition(int num)
 	ammunition = num + ammunition;
 }
 
+void Wagon::lose_Ammunition()
+{
+	ammunition--;
+}
+
 int Wagon::get_Pace()
 {
 	return pace;

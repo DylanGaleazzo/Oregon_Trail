@@ -303,6 +303,27 @@ void general_store(Wagon* wagon, General_Store* store)
 	} while (loop);
 }
 
+void hunting(Wagon* wagon)
+{
+	string shot;
+	int foodCaught;
+	std::system("CLS"); // clear the command window
+	cout << "To hunt, type bang as fast as possible in hope of catching game." << endl;
+	getline(cin, shot, 'bang');
+	wagon->lose_Ammunition();
+	if (shot == "bang")
+	{
+		foodCaught = generate_random(0, 100);
+		wagon->add_Food(foodCaught);
+		cout << " You caught " << foodCaught << " pounds of food.";
+	}
+	else
+	{
+		cout << " Oh no!! You missed!!";
+	}
+	std::system("CLS"); // clear the command window
+}
+
 void arrived_At_Fort_Or_River(LandMark* landmark)
 {
 	string temp;
@@ -312,11 +333,9 @@ void arrived_At_Fort_Or_River(LandMark* landmark)
 		cout << "You may: " << endl <<
 			"	1. Continue on trail" << endl <<
 			"	2. Check supplies" << endl <<
-			"	3. Look at map X" << endl <<
-			"	4. Change pace" << endl <<
-			"	5. Change food rations" << endl <<
-			"	6. Stop to rest X" << endl <<
-			"	7. Buy Supplies" << endl << endl <<
+			"	3. Change pace" << endl <<
+			"	4. Change food rations" << endl <<
+			"	5. Buy Supplies" << endl << endl <<
 			"What is your choice ? ";
 	}
 	else
