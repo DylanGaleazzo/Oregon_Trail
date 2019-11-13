@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClInclude Include="Landmark.h" />
     <ClInclude Include="People.h" />
+    <ClInclude Include="River.h" />
     <ClInclude Include="Wagon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

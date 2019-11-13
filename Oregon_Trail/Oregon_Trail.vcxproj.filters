@@ -52,5 +52,8 @@
     <ClInclude Include="Landmark.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="River.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
