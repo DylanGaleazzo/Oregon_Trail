@@ -41,6 +41,7 @@ Wagon::Wagon(string occupation)
     this->clothing = 0;
     this->ammunition = 0;
     this->parts = 0;
+    this->rations = 1;
 
     string temp_name;
     cout << "What is the leader of your wagons name?: ";
@@ -134,3 +135,9 @@ ostream &operator<<(ostream &os, const Wagon &w)
 
     return os;
 }
+
+void Wagon::add_Clothing(int c) { this->clothing = c + this->clothing; }
+void Wagon::lose_money(int m) { this->money = m + this->money; }
+void Wagon::add_oxen(int o) { this->oxen = o + this->oxen; }
+void Wagon::lose_Ammunition(int a) { this->ammunition = a + this->ammunition; }
+void Wagon::change_Rations(int r) { this->rations = r; }

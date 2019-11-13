@@ -7,7 +7,7 @@
 #include <Windows.h> // For colored lines
 #include <iomanip>   // std::setprecision
 #include "Wagon.h"
-#include "People.h"
+#include "Person.h"
 #include "Landmark.h"
 #include "General_Store.h"
 

@@ -18,6 +18,7 @@ private:
     int clothing;
     int ammunition;
     int parts;
+    int rations;
 
 public:
     Wagon();
@@ -34,6 +35,11 @@ public:
     int get_Parts();
     void kill_Person();
     void make_people();
+    void add_Clothing(int);
+    void lose_money(int);
+    void add_oxen(int);
+    void lose_Ammunition(int);
+    void change_Rations(int);
 
     friend ostream &operator<<(ostream &os, const Wagon &w);
 };
