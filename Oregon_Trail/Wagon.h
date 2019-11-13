@@ -18,7 +18,6 @@ private:
 	int clothing;
 	int ammunition;
 	int rations;
-	int pace;
 	int distance;
 	Date date;
 public:
@@ -38,8 +37,8 @@ public:
 	int get_Ammunition();
 	void add_Ammunition(int);
 	void lose_Ammunition();
-	int get_Pace();
 	int get_Rations();
+	void change_Rations(int);
 	int get_Distance();
 	Date get_Date();
 	void eat_Food();

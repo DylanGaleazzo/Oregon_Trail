@@ -12,8 +12,8 @@ Wagon::Wagon()
 	food = 0;
 	clothing = 0;
 	ammunition = 0;
-	pace = 1;
 	food = 0;
+	rations = 1;
 	distance = 0;
 }
 
@@ -92,11 +92,6 @@ void Wagon::lose_Ammunition()
 	ammunition--;
 }
 
-int Wagon::get_Pace()
-{
-	return pace;
-}
-
 int Wagon::get_Distance()
 {
 	return distance;
@@ -105,6 +100,11 @@ int Wagon::get_Distance()
 int Wagon::get_Rations()
 {
 	return rations;
+}
+
+void Wagon::change_Rations(int num)
+{
+	rations = num;
 }
 
 Date Wagon::get_Date()

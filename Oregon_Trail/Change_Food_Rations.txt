@@ -1,0 +1,16 @@
+	Change food rations
+
+The amount of food the people in 
+your party eat each day can 
+change. These amounts are:
+
+   1. bare bones - meals are very 
+      small; everyone stays hungry.
+
+   2. meager - meals are small, but
+      adequate.
+
+   3. filling - meals are large and
+      generous.
+
+What is your choice?

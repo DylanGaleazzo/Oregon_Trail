@@ -77,7 +77,8 @@ void travel_troubles(People* person, Wagon* wagon) // randomly throw an ailment
 
 	int randNum;
 	vector<string>  ailment({ "inadequite grass", "bad water", "exhaustion", " measles", "a snakebite", "dysentery", "typhoid", "cholera",  "a broken leg", "a broken arm" });
-	randNum = generate_random(0, 1000);
+	randNum = generate_random(0, wagon->get_Rations * 300);
+	
 	if (randNum <= 100)
 	{
 		int rand = generate_random(0, 9);
@@ -329,6 +330,17 @@ void hunting(Wagon* wagon)
 	std::system("CLS"); // clear the command window
 }
 
+void change_Food_Rations(Wagon* wagon)
+{
+	int choice;
+
+	std::system("CLS"); // clear the command window
+	read_text("Change_Food_Rations.txt");
+	wagon->change_Rations(choice);
+	std::system("CLS"); // clear the command window
+}
+
+
 
 void arrived_At_Fort_Or_River(LandMark* landmark)
 {
@@ -339,7 +351,7 @@ void arrived_At_Fort_Or_River(LandMark* landmark)
 		cout << "You may: " << endl <<
 			"	1. Continue on trail" << endl <<
 			"	2. Check supplies" << endl <<
-			"	3. Change pace" << endl <<
+			"	3. Go hunting" << endl <<
 			"	4. Change food rations" << endl <<
 			"	5. Buy Supplies" << endl << endl <<
 			"What is your choice ? ";
