@@ -1,3 +1,6 @@
+//Dylan Galeazzo
+//Denise Valencia
+
 #include "Wagon.h"
 
 Wagon::Wagon()
@@ -73,6 +76,11 @@ int Wagon::get_Distance()
 int Wagon::get_Rations()
 {
 	return rations;
+}
+
+Date Wagon::get_Date()
+{
+	return date;
 }
 
 void Wagon::eat_Food()

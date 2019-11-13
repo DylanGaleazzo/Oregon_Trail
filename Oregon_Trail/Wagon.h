@@ -1,6 +1,8 @@
+//Dylan Galeazzo
+//Denise Valencia
+//Anson Biggs
 #pragma once
-
-#include <iostream>
+#include "date.h"
 using namespace std;
 
 class Wagon
@@ -16,6 +18,7 @@ private:
 	int rations;
 	int pace;
 	int distance;
+	Date date;
 public:
 	Wagon();
 	Wagon(string occupation, double money, int oxen, int food, int clothing, int ammunition);
@@ -30,6 +33,7 @@ public:
 	int get_Pace();
 	int get_Rations();
 	int get_Distance();
+	Date get_Date();
 	void eat_Food();
 	void kill_Person();
 };

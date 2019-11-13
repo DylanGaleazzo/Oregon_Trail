@@ -1,3 +1,6 @@
+//Denise Valencia
+//Dylan Galeazzo
+
 #include <fstream>
 #include <stdlib.h> // For clearing the command window
 #include <vector> // For ailment vector
@@ -5,6 +8,8 @@
 #include <iomanip>      // std::setprecision
 #include "Wagon.h"
 #include "People.h"
+#include "Landmark.h"
+
 void read_text(string fileName)
 {
 	string line;
@@ -117,15 +122,15 @@ int randomly_choose_person(Wagon* wagon)
 void independence_general_store_text(Wagon* wagon)
 {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	char cont;
+	string cont;
 	cout << "It is 1848. Your jumping off" << endl <<
 		"place for Oregon is Independence," << endl <<
 		"Missouri.You are leaving in" << endl <<
 		"April because there will be" << endl <<
 		"green grass for your oxen to" << endl <<
 		"eat and the weather will still" << endl <<
-		"be cool." << endl << "Enter c to continue" << endl;
-	cin >> cont;
+		"be cool." << endl << "Press c to continue" << endl;
+	getline(cin, cont, 'c');
 	std::system("CLS"); // clear the command window
 
 	cout << "Before leaving Independence you" << endl <<
@@ -135,9 +140,9 @@ void independence_general_store_text(Wagon* wagon)
 		"spend it all now. " << endl << endl <<
 		"You can buy whatever you need at" << endl <<
 		"Dylan's General Store." << endl <<
-		"Enter c to continue" << endl;
+		"Press c to continue" << endl;
 
-	cin >> cont;
+	getline(cin, cont, 'c');
 	std::system("CLS"); // clear the command window
 
 	SetConsoleTextAttribute(hConsole, 10); // Green text
@@ -160,28 +165,28 @@ void independence_general_store_text(Wagon* wagon)
 		"***********************************" << endl << endl <<
 		"Amount of money you have: " << wagon->get_Money() << endl <<
 		"What would you like to buy? ";
-	cin << selection;
+	cin >> selection;
 	switch (selection)
 	{
 	case 1:
 		std::system("CLS"); // clear the command window
 		read_text("Oxen.txt");
-		cin << ;
+		cin >> ;
 		break;
 	case 2:
 		std::system("CLS"); // clear the command window
 		read_text("Food.txt");
-		cin << ;
+		cin >> ;
 		break;
 	case 3:
 		std::system("CLS"); // clear the command window
 		read_text("Clothing.txt");
-		cin << ;
+		cin >> ;
 		break;
 	case 4:
 		std::system("CLS"); // clear the command window
 		read_text("Ammunition.txt");
-		cin << ;
+		cin >> ;
 		break;
 	}
 
@@ -189,15 +194,15 @@ void independence_general_store_text(Wagon* wagon)
 
 void general_store(Wagon* wagon)
 {
-	char cont;
+	string cont;
 	cout << "It is 1848. Your jumping off" << endl <<
 		"place for Oregon is Independence," << endl <<
 		"Missouri.You are leaving in" << endl <<
 		"April because there will be" << endl <<
 		"green grass for your oxen to" << endl <<
 		"eat and the weather will still" << endl <<
-		"be cool." << endl << "Enter c to continue" << endl;
-	cin >> cont;
+		"be cool." << endl << "Press c to continue" << endl;
+	getline(cin, cont, 'c');
 	std::system("CLS"); // clear the command window
 
 	cout << "Before leaving Independence you" << endl <<
@@ -207,10 +212,51 @@ void general_store(Wagon* wagon)
 		"spend it all now. " << endl << endl <<
 		"You can buy whatever you need at" << endl <<
 		"Dylan's General Store." << endl <<
-		"Enter c to continue" << endl;
+		"Press c to continue" << endl;
 
-	cin >> cont;
+	getline(cin, cont, 'c');
 	std::system("CLS"); // clear the command window
 
 
+}
+
+void arrived_At_Fort_Or_River(LandMark* landmark)
+{
+	string temp;
+	if (landmark->isFort())
+	{
+		cout << landmark;
+		cout << "You may: " << endl <<
+			"	1. Continue on trail" << endl <<
+			"	2. Check supplies" << endl <<
+			"	3. Look at map X" << endl <<
+			"	4. Change pace" << endl <<
+			"	5. Change food rations" << endl <<
+			"	6. Stop to rest X" << endl <<
+			"	7. Buy Supplies" << endl << endl <<
+			"What is your choice ? ";
+	}
+	else
+	{
+		cout << landmark;
+		cout << "You may: " << endl << endl <<
+
+			"1. attempt to ford the river (50 % chance no goods lost)" << endl << endl <<
+
+			"2. caulk the wagon and float it across(75 % chance no goods lost)" << endl << endl <<
+
+			"3. take a ferry across(100 %)" << endl << endl <<
+
+			"What is your choice? ";
+		std::system("CLS"); // clear the command window
+		
+		cout << "You must cross the river in" <<
+			"order to continue. The river" <<
+			"at this point is currently" <<
+			"628 feet across, and 4.8" <<
+			"feet deep in the middle." << endl << endl <<
+			"Press c to continue" << endl;
+		getline(cin, temp, 'c');
+		std::system("CLS"); // clear the command window
+	}
 }

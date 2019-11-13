@@ -1,21 +1,29 @@
+//Dylan Galeazzo
 #pragma once
-#include "Wagon.h"
-#include "River.h"
-class Fort
+#include "Wagon.cpp"
+
+class LandMark
 {
 private:
 	Wagon wagon;
+	string name;
+	Date date;
 public:
-	Fort();
-	friend ostream& operator<<(ostream& os, const Fort&);
+	string get_Name();
+	Wagon get_Wagon();
+	virtual bool isFort();
 };
 
-Fort::Fort()
+class Fort:public LandMark
 {
-	cout << "Welcome to the Fort" << endl;
-}
+public:
+	ostream& operator<<(ostream& os);
+	bool isFort() { return true; }
+};
 
-ostream& operator<<(ostream& os, const Fort&)
+class River:public LandMark
 {
-	cout << 
-}
+public:
+	ostream& operator<<(ostream& os);
+	bool isFort() { return false; }
+};

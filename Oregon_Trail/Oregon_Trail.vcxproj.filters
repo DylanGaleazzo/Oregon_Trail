@@ -30,12 +30,18 @@
     <ClCompile Include="Landmark.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Date.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="DifferenceInOccupations.txt">
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="SelectingOccupation.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\..\..\..\Downloads\RandomTextNotNeededInOwnTxtFile.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
@@ -49,7 +55,7 @@
     <ClInclude Include="Landmark.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="River.h">
+    <ClInclude Include="Date.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

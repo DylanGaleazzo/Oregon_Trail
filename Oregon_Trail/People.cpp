@@ -1,3 +1,4 @@
+//Denise Valencia
 #include "People.h"
 
 People::People()
