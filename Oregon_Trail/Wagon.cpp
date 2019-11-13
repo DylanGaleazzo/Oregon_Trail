@@ -43,7 +43,7 @@ double Wagon::get_Money()
 	return money;
 }
 
-double Wagon::lose_Money(double num)
+void Wagon::lose_Money(double num)
 {
 	money = money - num;
 }

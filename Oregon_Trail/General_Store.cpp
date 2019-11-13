@@ -9,37 +9,37 @@ General_Store::General_Store()
 	priceAmmunition = 2.00;
 }
 
-~General_Store()
+General_Store::~General_Store()
 {
 	cout << "leaving Dylan's General Store" << endl;
 }
 
-double get_Total() 
+double General_Store::get_Total()
 {
 	return total;
 }
 
-double get_Price_Oxen() 
+double General_Store::get_Price_Oxen() 
 {
 	return priceOxen;
 }
 
-double get_Price_Food() 
+double General_Store::get_Price_Food()
 {
 	return priceFood;
 }
 
-double get_Price_Clothing() 
+double General_Store::get_Price_Clothing()
 {
 	return priceClothing;
 }
 
-double get_Price_Ammunition() 
+double General_Store::get_Price_Ammunition()
 {
 	return priceAmmuntion;
 }
 
-double change_Total(double item) 
+double General_Store::change_Total(double item)
 {
 	total = total + item;
 	return total;

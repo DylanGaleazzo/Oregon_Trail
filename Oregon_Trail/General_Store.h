@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-class General_Store()
+class General_Store
 {
 private:
 	double total;

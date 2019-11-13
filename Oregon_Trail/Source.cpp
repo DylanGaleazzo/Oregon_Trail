@@ -29,7 +29,7 @@ int main()
 	}
 
 	Wagon wagon(occupation, wagonMoney, 0, 0, 0, 0);
-
+	General_Store store();
 
 	//********************************************************//
 	// create leader and people
