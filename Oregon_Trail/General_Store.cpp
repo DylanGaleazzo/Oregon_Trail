@@ -39,9 +39,14 @@ double General_Store::get_Price_Ammunition()
 	return priceAmmuntion;
 }
 
-double General_Store::change_Total(double item)
+double General_Store::change_Total(double moneyitem)
 {
 	total = total + item;
 	return total;
+}
+
+void General_Store::reset_Total()
+{
+	total = 0;
 }
 

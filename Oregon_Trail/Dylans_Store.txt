@@ -1,0 +1,9 @@
+***********************************
+Dylan's General Store
+***********************************
+1. Oxen           $40.00 per yoke
+2. Food           $ 0.20 per pound
+3. Clothing       $10.00 per set
+4. Ammunition     $ 2.00 per box
+5. Leave Store 
+***********************************

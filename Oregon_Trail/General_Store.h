@@ -20,4 +20,5 @@ public:
 	double get_Price_Clothing();
 	double get_Price_Ammunition();
 	double change_Total(double);
+	void reset_Total();
 };

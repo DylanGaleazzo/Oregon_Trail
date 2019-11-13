@@ -161,7 +161,7 @@ void independence_general_store_text(Wagon* wagon, General_Store* store)
 	 // loop until they want to stop 
 	do
 	{
-		cout << "**********************************" << endl <<
+		cout << "***********************************" << endl <<
 			"Dylan's General Store" << endl <<
 			"***********************************" << endl <<
 			"1. Oxen                 $" << moneyTotalOxen << endl <<
@@ -181,7 +181,7 @@ void independence_general_store_text(Wagon* wagon, General_Store* store)
 			cin >> numOfItemsWanted;
 			if (store->get_Price_Oxen() * numOfItemsWanted + moneyTotalSpent <= wagon->get_Money())
 			{
-				wagon->add_Oxen(numOfItemsWanted);
+				wagon->add_Oxen(numOfItemsWanted * 2);
 				moneyTotalOxen = numOfItemsWanted * store->get_Price_Oxen();
 			}
 			break;
@@ -211,7 +211,7 @@ void independence_general_store_text(Wagon* wagon, General_Store* store)
 			cin >> numOfItemsWanted;
 			if (numOfItemsWanted * store->get_Price_Ammunition() + moneyTotalSpent <= wagon->get_Money())
 			{
-				wagon->add_Ammunition(numOfItemsWanted);
+				wagon->add_Ammunition(numOfItemsWanted * 20);
 				moneyTotalAmmunition = numOfItemsWanted * store->get_Price_Ammunition();
 			}
 			break;
@@ -228,14 +228,79 @@ void independence_general_store_text(Wagon* wagon, General_Store* store)
 		"to start. Good luck!" << endl <<
 		"You have a long and" << endl <<
 		"difficult journey ahead" << endl <<
-		"of you." << endl;
+		"of you." << endl << "Press c to continue";
+	getline(cin, cont, 'c');
 
 }
 
-void general_store(Wagon* wagon)
+void general_store(Wagon* wagon, General_Store* store)
 {
+	bool loop = true;
+	int choice;
+	int numOfItemsWanted;
 
-
+	do
+	{
+		std::system("CLS"); // clear the command window
+		read_text("Dylans_Store.txt");
+			cout << "You have $" << wagon->get_Money() - store->get_Total() << " to spend." << endl <<
+				"What would you like to do? ";
+		cin >> choice;
+		switch (choice) 
+		{
+		case 1:
+			std::system("CLS"); // clear the command window
+			read_text("Dylans_Store.txt");
+			cout << "You have $" << wagon->get_Money() << " to spend." << endl <<
+				"How many yoke would you like to buy? ";
+			cin >> numOfItemsWanted;
+			if (store->get_Price_Oxen() * numOfItemsWanted <= wagon->get_Money())
+			{
+				wagon->add_Oxen(numOfItemsWanted * 2);
+				wagon->lose_Money(numOfItemsWanted * store->get_Price_Oxen());
+			}
+			break;
+		case 2:
+			std::system("CLS"); // clear the command window
+			read_text("Dylans_Store.txt");
+			cout << "You have $" << wagon->get_Money() << " to spend." << endl <<
+				"How many pounds of food would you like to buy? ";
+			cin >> numOfItemsWanted;
+			if (numOfItemsWanted * store->get_Price_Food() <= wagon->get_Money())
+			{
+				wagon->add_Food(numOfItemsWanted);
+				wagon->lose_Money(numOfItemsWanted * store->get_Price_Food());
+			}
+			break;
+		case 3:
+			std::system("CLS"); // clear the command window
+			read_text("Dylans_Store.txt");
+			cout << "You have $" << wagon->get_Money() << " to spend." << endl <<
+				"How many sets of clothing would you like to buy? ";
+			cin >> numOfItemsWanted;
+			if (numOfItemsWanted * store->get_Price_Clothing() <= wagon->get_Money())
+			{
+				wagon->add_Clothing(numOfItemsWanted);
+				wagon->lose_Money(numOfItemsWanted * store->get_Price_Clothing());
+			}
+			break;
+		case 4:
+			std::system("CLS"); // clear the command window
+			read_text("Dylans_Store.txt");
+			cout << "You have $" << wagon->get_Money() << " to spend." << endl <<
+				"How many boxes would you like to buy? ";
+			cin >> numOfItemsWanted;
+			if (numOfItemsWanted * store->get_Price_Ammunition() <= wagon->get_Money())
+			{
+				wagon->add_Ammunition(numOfItemsWanted * 20);
+				wagon->lose_Money(numOfItemsWanted * store->get_Price_Ammunition());
+			}
+			break;
+		default:
+			loop = false;
+			std::system("CLS"); // clear the command window
+		}
+	} while (loop);
 }
 
 void arrived_At_Fort_Or_River(LandMark* landmark)
