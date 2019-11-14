@@ -246,7 +246,7 @@ void general_store(Wagon *wagon, General_Store *store)
 	{
 		std::system("CLS"); // clear the command window
 		read_text("Dylans_Store.txt");
-		cout << "You have $" << wagon.money - store->get_Total() << " to spend." << endl
+		cout << "You have $" << wagon->money - store->get_Total() << " to spend." << endl
 			 << "What would you like to do? ";
 		cin >> choice;
 		switch (choice)
@@ -254,22 +254,22 @@ void general_store(Wagon *wagon, General_Store *store)
 		case 1:
 			std::system("CLS"); // clear the command window
 			read_text("Dylans_Store.txt");
-			cout << "You have $" << wagon.money << " to spend." << endl
+			cout << "You have $" << wagon->money << " to spend." << endl
 				 << "How many yoke would you like to buy? ";
 			cin >> numOfItemsWanted;
-			if (store->get_Price_Oxen() * numOfItemsWanted <= wagon.money)
+			if (store->get_Price_Oxen() * numOfItemsWanted <= wagon->money)
 			{
-				wagon.oxen(numOfItemsWanted * 2);
-				wagon.money -= (numOfItemsWanted * store->get_Price_Oxen());
+				wagon->oxen(numOfItemsWanted * 2);
+				wagon->money -= (numOfItemsWanted * store->get_Price_Oxen());
 			}
 			break;
 		case 2:
 			std::system("CLS"); // clear the command window
 			read_text("Dylans_Store.txt");
-			cout << "You have $" << wagon.money << " to spend." << endl
+			cout << "You have $" << wagon->money << " to spend." << endl
 				 << "How many pounds of food would you like to buy? ";
 			cin >> numOfItemsWanted;
-			if (numOfItemsWanted * store->get_Price_Food() <= wagon.money)
+			if (numOfItemsWanted * store->get_Price_Food() <= wagon->money)
 			{
 				wagon.food += (numOfItemsWanted);
 				wagon.money -= (numOfItemsWanted * store->get_Price_Food());

@@ -77,9 +77,9 @@ Wagon::~Wagon()
 }
 
 string Wagon::get_occupation() { return occupation; }
-string Wagon::get_leader() { return this->leader; }
-Person Wagon::get_person(int index) { return this->people[index]; }
-int Wagon::alive_count() { return this->people_alive; }
+string Wagon::get_leader() { return leader; }
+Person Wagon::get_person(int index) { return people[index]; }
+int Wagon::alive_count() { return people_alive; }
 void Wagon::kill_person(int index)
 {
     people[index].~Person();
