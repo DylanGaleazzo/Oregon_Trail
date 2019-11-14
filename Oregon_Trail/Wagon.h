@@ -1,52 +1,45 @@
 #pragma once
-#include "Person.h"
 #include "Date.h"
+#include "Person.h"
 #include <iostream>
 using namespace std;
 
-class Wagon
-{
+class Wagon {
 private:
-    string occupation;
-	string leader;
+  string occupation;
+  string leader;
 
-    int people_alive;
-    Person people[5];
+  int people_alive;
+  Person people[5];
 
 public:
-    double money;
-    int oxen;
-    int food;
-    int clothing;
-    int ammunition;
-    int parts;
-    int rations;
-	Date date;
+  double money;
+  int oxen;
+  int food;
+  int clothing;
+  int ammunition;
+  int parts;
+  int rations;
+  Date date;
 
-    Wagon();
-<<<<<<< HEAD
-<<<<<<< HEAD
-    Wagon(std::string occupation);
-=======
-    Wagon(string occupation);
->>>>>>> fd1ee26627c9ae29bee667e4308f8e86bd6bd619
-    ~Wagon();
-	string get_Occupation();
-	string get_Leader();
-    Person get_Person(int index);
-    int alive_Count();
-    void kill_Person(int index);
-=======
-    Wagon(string occupation);
-    Wagon(string occupation, double money, int oxen, int food, int clothing, int ammunition, int parts);
-    ~Wagon();
-    string get_occupation();
-    string get_leader();
-    Person get_person(int index);
-    int alive_count();
-    void kill_person(int index);
->>>>>>> parent of fe36c92... Merge branch 'master' of https://github.com/DylanGaleazzo/Oregon_Trail
+  Wagon();
+  Wagon(std::string occupation);
+  Wagon(string occupation);
+  ~Wagon();
+  string get_Occupation();
+  string get_Leader();
+  Person get_Person(int index);
+  int alive_Count();
+  void kill_Person(int index);
+  Wagon(string occupation);
+  Wagon(string occupation, double money, int oxen, int food, int clothing,
+        int ammunition, int parts);
+  ~Wagon();
+  string get_occupation();
+  string get_leader();
+  Person get_person(int index);
+  int alive_count();
+  void kill_person(int index);
 
-    friend ostream &
-    operator<<(ostream &os, const Wagon &w);
+  friend ostream &operator<<(ostream &os, const Wagon &w);
 };
