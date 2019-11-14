@@ -1,4 +1,5 @@
 //Dylan Galeazzo
+#pragma once
 #include "Wagon.h"
 
 class Landmark
