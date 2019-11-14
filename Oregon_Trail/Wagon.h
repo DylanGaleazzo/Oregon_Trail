@@ -2,10 +2,11 @@
 #include "Date.h"
 #include "Person.h"
 #include <iostream>
-#pragma once
+
 using namespace std;
 
-class Wagon {
+class Wagon 
+{
 private:
 	string occupation;
 	string leader;

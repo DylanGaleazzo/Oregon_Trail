@@ -25,19 +25,22 @@ Other::Other(string name, int miles, Wagon wagon)
 
 ostream& Fort::operator<<(ostream& os)
 {
-	cout << "You have arrived at fort" << this->name << endl;
-	cout << this->wagon.date << endl;
+	os << "You have arrived at fort" << this->name << endl;
+	os << this->wagon.date << endl;
+	return os;
 }
 
 ostream& River::operator<<(ostream& os)
 {
 	string temp;
-	cout << "You have arrived at " << this->name << " River Crossing" << endl;
-	cout << this->wagon.date << endl << endl;
+	os << "You have arrived at " << this->name << " River Crossing" << endl;
+	os << this->wagon.date << endl << endl;
+	return os;
 }
 
 ostream& Other::operator<<(ostream& os)
 {
-	cout << "You have arrived at " << this->name << endl;
-	cout << this->wagon.date << endl << endl;
+	os << "You have arrived at " << this->name << endl;
+	os << this->wagon.date << endl << endl;
+	return os;
 }

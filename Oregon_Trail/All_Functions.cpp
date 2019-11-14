@@ -93,12 +93,12 @@ void travel_troubles(Person *person, Wagon *wagon) // randomly throw an ailment
     SetConsoleTextAttribute(hConsole, 12); // Red text
     cout << person->get_Name() << " has died of " << ailment[rand];
     SetConsoleTextAttribute(hConsole, 15); // White text
-    wagon->kill_Person(generate_random(1, wagon->alive_count()));
+    wagon->kill_Person(generate_random(1, wagon->alive_Count()));
   }
 }
 
 int randomly_choose_person(Wagon *wagon) {
-  int numOfPeople = wagon->alive_count();
+  int numOfPeople = wagon->alive_Count();
   if (numOfPeople > 1) {
     int rand = generate_random(2, numOfPeople);
     return rand;
@@ -314,19 +314,21 @@ void change_Food_Rations(Wagon *wagon) {
 
   std::system("CLS"); // clear the command window
   read_Text("Change_Food_Rations.txt");
+  cin >> choice;
   wagon->rations = choice;
   std::system("CLS"); // clear the command window
 }
 
-void is_Fort_Options(Wagon* wagon, General_Store* store, Landmark* landmark) {
+void is_Fort_Options(Wagon* wagon, General_Store* store, Landmark* landmark) 
+{
 	int choice;
 	cout << landmark;
 	read_Text("Fort_Options.txt");
 	cin >> choice;
 	switch (choice)
 	{
-	case 2:
-		cout << wagon;
+	case 1:
+		break;
 		break;
 	case 3:
 		change_Food_Rations(wagon);
@@ -334,7 +336,6 @@ void is_Fort_Options(Wagon* wagon, General_Store* store, Landmark* landmark) {
 	case 4:
 		general_store(wagon, store);
 		break;
-	default:
 	}
 }
 
@@ -343,7 +344,7 @@ void ford_River(Wagon* wagon, int range) {
 	int bullets = generate_random(0, 10);
 	if (chance < 10) {
 		cout << "You did not make it across!" << endl;
-		wagon->~Wagon;
+		wagon->~Wagon();
 	}
 	else {
 		wagon->ammunition = wagon->ammunition - bullets;
@@ -381,8 +382,6 @@ void is_River_Options(Wagon* wagon, Landmark* landmark) {
 		wagon->money = wagon->money - 5.0;
 		cout << "You succeeded crossing the river!" << endl;
 			break;
-	default:
-
 	}
 }
 
@@ -393,6 +392,8 @@ void is_Other_Options(Wagon* wagon, Landmark* landmark) {
 	cin >> choice;
 	switch (choice)
 	{
+	case 1:
+		break;
 	case 2:
 		cout << wagon;
 		break;
@@ -402,7 +403,6 @@ void is_Other_Options(Wagon* wagon, Landmark* landmark) {
 	case 4:
 		hunting(wagon);
 		break;
-	default:
 	}
 }
 
