@@ -12,7 +12,7 @@ class Person
 {
 protected:
     string name;
-    bool isAlive;
+    bool is_alive;
     bool ailment;
     string ailments[5];
 
