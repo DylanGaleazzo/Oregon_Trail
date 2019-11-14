@@ -1,0 +1,7 @@
+You may: 
+	1. Continue on trail
+	2. Check supplies
+	3. Change food rations
+	4. Buy Supplies
+
+What is your choice ? 

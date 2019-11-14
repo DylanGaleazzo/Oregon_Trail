@@ -17,4 +17,9 @@ int main()
 	// getting first round of supplies
 	General_Store store();
 	independence_general_store_text(&wagon, &store);
+	//********************************************************/
+	// travel
+
+	//********************************************************/
+	// scores
 }
