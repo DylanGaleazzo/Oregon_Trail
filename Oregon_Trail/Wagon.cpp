@@ -76,7 +76,7 @@ Wagon::~Wagon()
     cout << "Wagon destroyed" << endl;
 }
 
-string Wagon::get_occupation() { return this->occupation; }
+string Wagon::get_occupation() { return occupation; }
 string Wagon::get_leader() { return this->leader; }
 Person Wagon::get_person(int index) { return this->people[index]; }
 int Wagon::alive_count() { return this->people_alive; }
