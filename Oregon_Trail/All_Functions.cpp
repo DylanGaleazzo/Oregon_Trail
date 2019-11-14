@@ -409,13 +409,13 @@ void is_Other_Options(Wagon* wagon, Landmark* landmark) {
 
 void arrived_At_Landmark(Wagon* wagon, General_Store* store, Landmark* landmark) {
   string temp;
-  if (is_Fort == 1) {
+  if (landmark->isFort == 1) {
 	  is_Fort_Options(&wagon, &store, &landmark);
 	  cout << "Press c to continue" << endl;
 	  getline(cin, temp, 'c');
 	  std::system("CLS"); // clear the command window
   } 
-  else if (is_Fort == 2) {
+  else if (landmark->isFort == 2) {
 	  is_River_Options(&wagon, &landmark);
 	  cout << "Press c to continue" << endl;
 	  getline(cin, temp, 'c');
