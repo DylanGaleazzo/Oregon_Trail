@@ -11,6 +11,8 @@ public:
 	virtual int isFort() = 0;
 };
 
+class Fort:public Landmark
+{
 public:
 	Fort(string name, int miles, Wagon wagon);
 	ostream& operator<<(ostream& os);
