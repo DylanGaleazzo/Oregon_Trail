@@ -9,8 +9,8 @@ private:
   string occupation;
   string leader;
 
-  int people_alive;
-  Person people[5];
+    int peopleAlive;
+    Person people[5];
 
 public:
   double money;

@@ -1,22 +1,34 @@
 // Dylan Galeazzo
 #pragma once
-#include "Wagon.cpp"
+#include "Wagon.h"
 
-class LandMark {
-private:
-  Wagon wagon;
-  string name;
-  Date date;
-
+class Landmark
+{
 public:
-  string get_Name();
-  Wagon get_Wagon();
-  virtual bool isFort();
+	Wagon wagon;
+	string name;
+	int miles;
+	virtual int isFort() = 0;
 };
 
-class Fort : public LandMark {
 public:
-  River(string name, int miles, Wagon wagon);
-  ostream &operator<<(ostream &os);
-  int is_Fort() { return 2; }
+	Fort(string name, int miles, Wagon wagon);
+	ostream& operator<<(ostream& os);
+	int is_Fort() { return 1; }
+};
+
+class River:public Landmark
+{
+public:
+	River(string name, int miles, Wagon wagon);
+	ostream& operator<<(ostream& os);
+	int is_Fort() { return 2; }
+};
+
+class Other :public Landmark
+{
+public:
+	Other(string name, int miles, Wagon wagon);
+	ostream& operator<<(ostream& os);
+	int is_Fort() { return 3; }
 };

@@ -4,7 +4,7 @@
 #include "General_Store.h"
 #include "Landmark.h"
 #include "Person.h"
-#include "Wagon.h"
+#include "wagon.h"
 #include <Windows.h> // For colored lines
 #include <fstream>
 #include <iomanip>  // std::setprecision
@@ -170,7 +170,7 @@ void independence_general_store_text(Wagon *wagon, General_Store *store) {
       cin >> numOfItemsWanted;
       if (store->get_Price_Oxen() * numOfItemsWanted + moneyTotalSpent <=
           wagon->money) {
-        wagon->oxen += (numOfItemsWanted * 2);
+        wagon->oxen(numOfItemsWanted * 2);
         moneyTotalOxen = numOfItemsWanted * store->get_Price_Oxen();
       }
       break;
@@ -243,7 +243,7 @@ void general_store(Wagon *wagon, General_Store *store) {
            << "How many yoke would you like to buy? ";
       cin >> numOfItemsWanted;
       if (store->get_Price_Oxen() * numOfItemsWanted <= wagon->money) {
-        wagon->oxen += (numOfItemsWanted * 2);
+        wagon->oxen(numOfItemsWanted * 2);
         wagon->money -= (numOfItemsWanted * store->get_Price_Oxen());
       }
       break;
@@ -318,123 +318,113 @@ void change_Food_Rations(Wagon *wagon) {
   std::system("CLS"); // clear the command window
 }
 
-void is_Fort_Options(Wagon *wagon, General_Store *store, Landmark *landmark) {
-  int choice;
-  cout << landmark;
-  read_Text("Fort_Options.txt");
-  cin >> choice;
-  switch (choice) {
-  case 2:
-    cout << wagon;
-    break;
-  case 3:
-    change_Food_Rations(&wagon);
-    break;
-  case 4:
-    general_store(&wagon, &store) break;
-  default:
-  }
+void is_Fort_Options(Wagon* wagon, General_Store* store, Landmark* landmark) {
+	int choice;
+	cout << landmark;
+	read_Text("Fort_Options.txt");
+	cin >> choice;
+	switch (choice)
+	{
+	case 2:
+		cout << wagon;
+		break;
+	case 3:
+		change_Food_Rations(&wagon);
+		break;
+	case 4:
+		general_store(&wagon, &store)
+		break;
+	default:
+	}
 }
 
-void ford_River(Wagon *wagon, int range) {
-  int chance = generate_random(1, range);
-  int bullets = generate_random(0, 10);
-  if (change < 10) {
-    cout << "You did not make it across!" << endl;
-    ~wagon();
-  } else
-    (chance < 50) {
-      wagon->ammunition = wagon->ammunition - bullets;
-      cout << "You made it across!" << endl
-           << "But you lost " << bullets << " bullets." << endl;
-    }
+void ford_River(Wagon* wagon, int range) {
+	int chance = generate_random(1,range);
+	int bullets = generate_random(0, 10);
+	if (change < 10) {
+		cout << "You did not make it across!" << endl;
+		~wagon();
+	}
+	else (chance < 50) {
+		wagon->ammunition = wagon->ammunition - bullets;
+		cout << "You made it across!" << endl <<
+			"But you lost " << bullets << " bullets." << endl;
+	}
 }
 
-void is_River_Options(Wagon *wagon, Landmark *landmark) {
-  int choice;
-  string temp;
-  int riverHeight = generate_random(3, 20);
-  int riverWidth = generate_random(100, 700);
+void is_River_Options(Wagon* wagon, Landmark* landmark) {
+	int choice;
+	string temp;
+	int riverHeight = generate_random(3, 20);
+	int riverWidth = generate_random(100, 700);
 
-  cout << landmark;
-  cout << "You must cross the river in" << endl < < < <
-      "order to continue. The river" << endl < < < <
-      "at this point is currently " << endl
-                                    << riverWidth < < < <
-      " feet across, and " << riverHeight < < < <
-      "feet deep in the middle." << endl
-                                 << endl
-                                 << "Press c to continue" << endl;
-  getline(cin, temp, 'c');
-  read_Text("River_Otions.txt");
-  cin >> choice;
+	cout << landmark;
+	cout << "You must cross the river in" << endl <<
+		<< "order to continue. The river" << endl <<
+		<< "at this point is currently " << endl << riverWidth <<
+		<< " feet across, and " << riverHeight <<
+		<< "feet deep in the middle." << endl
+		<< endl
+		<< "Press c to continue" << endl;
+	getline(cin, temp, 'c');
+	read_Text("River_Otions.txt");
+	cin >> choice;
 
-  switch (choice) {
-  case 1: // Ford river
-    ford_River(Wagon * wagon, 100);
-    break;
-  case 2: // Caulk boat
-    ford_River(Wagon * wagon, 300);
-    break;
-  case 3: // Ferry accross
-    wagon->money = wagon->money - 5.0;
-    cout << "You succeeded crossing the river!" << endl;
-    break;
-  default:
-  }
+	switch (choice)
+	{
+	case 1: // Ford river
+		ford_River(Wagon* wagon, 100);
+		break;
+	case 2: // Caulk boat
+		ford_River(Wagon * wagon, 300);
+		break;
+	case 3: // Ferry accross
+		wagon->money = wagon->money - 5.0;
+		cout << "You succeeded crossing the river!" << endl;
+			break;
+	default:
+
+	}
 }
 
-void is_Other_Options(Wagon *wagon, Landmark *landmark) {
-  int choice;
-  cout << landmark;
-  read_Text("Other_Options.txt");
-  cin >> choice;
-  switch (choice) {
-  case 2:
-    cout << wagon;
-    break;
-  case 3:
-    change_Food_Rations(&wagon);
-    break;
-  case 4:
-    hunting(&wagon, &store);
-    break;
-  default:
-  }
+void is_Other_Options(Wagon* wagon, Landmark* landmark) {
+	int choice;
+	cout << landmark;
+	read_Text("Other_Options.txt");
+	cin >> choice;
+	switch (choice)
+	{
+	case 2:
+		cout << wagon;
+		break;
+	case 3:
+		change_Food_Rations(&wagon);
+		break;
+	case 4:
+		hunting(&wagon, &store);
+		break;
+	default:
+	}
 }
 
-void arrived_At_Landmark(Wagon *wagon, General_Store *store,
-                         Landmark *landmark) {
+void arrived_At_Landmark(Wagon* wagon, General_Store* store, Landmark* landmark) {
   string temp;
   if (is_Fort == 1) {
-    is_Fort_Options(&wagon, &store, &landmark);
-    cout << "Press c to continue" << endl;
-    getline(cin, temp, 'c');
-    std::system("CLS"); // clear the command window
-  } else if (is_Fort == 2) {
-    is_River_Options(&wagon, &landmark);
-    cout << "Press c to continue" << endl;
-    getline(cin, temp, 'c');
-    std::system("CLS"); // clear the command window
-  } else {
-    is_Other_Options(&wagon, &landmark);
-    cout << "Press c to continue" << endl;
-    getline(cin, temp, 'c');
-    std::system("CLS"); // clear the command window
+	  is_Fort_Options(&wagon, &store, &landmark);
+	  cout << "Press c to continue" << endl;
+	  getline(cin, temp, 'c');
+	  std::system("CLS"); // clear the command window
+  } 
+  else if (is_Fort == 2) {
+	  is_River_Options(&wagon, &landmark);
+	  cout << "Press c to continue" << endl;
+	  getline(cin, temp, 'c');
+      std::system("CLS"); // clear the command window
   }
-}
-
-int main() {
-  cout << std::fixed;
-  cout << setprecision(2);
-  HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-
-  //********************************************************//
-  // create Wagon and people
-  Wagon wagon(set_occupation());
-  cout << wagon;
-  //********************************************************/
-  // getting first round of supplies
-  General_Store store;
-  independence_general_store_text(&wagon, &store);
+  else {
+	  is_Other_Options(&wagon, &landmark);
+	  cout << "Press c to continue" << endl;
+	  getline(cin, temp, 'c');
+	  std::system("CLS"); // clear the command window
+  }
 }
