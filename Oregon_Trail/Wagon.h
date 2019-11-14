@@ -7,10 +7,9 @@ using namespace std;
 
 class Wagon {
 private:
-  string occupation;
-  string leader;
-
-    int peopleAlive;
+	string occupation;
+	string leader;
+	int peopleAlive;
     Person people[5];
 
 public:
