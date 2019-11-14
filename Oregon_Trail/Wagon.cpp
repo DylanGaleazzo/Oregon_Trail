@@ -59,18 +59,6 @@ Wagon::Wagon(string occupation)
     }
 }
 
-Wagon::Wagon(string occupation, double money, int oxen, int food, int clothing, int ammunition, int parts)
-{
-    this->occupation = occupation;
-    this->money = money;
-    peopleAlive = 5;
-    this->oxen = oxen;
-    this->food = food;
-    this->clothing = clothing;
-    this->ammunition = ammunition;
-    this->parts = parts;
-}
-
 Wagon::~Wagon()
 {
     cout << "Wagon destroyed" << endl;

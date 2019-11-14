@@ -24,7 +24,6 @@ public:
 
     Wagon();
     Wagon(string occupation);
-    Wagon(string occupation, double money, int oxen, int food, int clothing, int ammunition, int parts);
     ~Wagon();
     string get_Occupation();
     string get_Leader();
