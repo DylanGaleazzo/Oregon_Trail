@@ -13,7 +13,7 @@ Person::Person(string name)
     this->isAlive = true;
 }
 
-inline string Person::get_Name()
+string Person::get_Name()
 {
     return this->name;
 }

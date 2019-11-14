@@ -1,6 +1,21 @@
 //Dylan Galeazzo
 #include "Landmark.h"
 
+int Fort::get_Landmark()
+{ 
+	return typeOfLandmark; 
+}
+
+int River::get_Landmark()
+{
+	return typeOfLandmark;
+}
+
+int Other::get_Landmark()
+{
+	return typeOfLandmark;
+}
+
 Fort::Fort(string name, int miles, Wagon wagon)
 {
 	this->name = name;

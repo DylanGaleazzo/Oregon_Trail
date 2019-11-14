@@ -1,19 +1,19 @@
 //Denise Valencia
 //Dylan Galeazzo
-#include "All_Functions.cpp"
+#include "All_Functions.h"
 using namespace std;
 
 int main()
 {
 	string input;
-	std::cout << std::fixed;
-	std::cout << setprecision(2);
+	cout << std::fixed;
+	cout << setprecision(2);
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 	//********************************************************//
 	// create Wagon and people
 	Wagon wagon(set_occupation());
-	std::cout << wagon;
+	cout << wagon;
 	//********************************************************/
 	// getting first round of supplies
 	General_Store store;
@@ -38,7 +38,7 @@ int main()
 		cout << "Press c to continue onto the trail";
 		getline(cin, input, 'c');
 		std::system("CLS"); // clear the command window
-		travel_troubles(&wagon.get_Person(randomly_choose_person(&wagon)), &wagon);
+		travel_troubles(wagon);
 		arrived_At_Landmark(&wagon, &store, &landmarkArray[i]);
 		wagon.date.addWeek();
 	}

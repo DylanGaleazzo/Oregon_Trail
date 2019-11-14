@@ -82,5 +82,8 @@
     <ClInclude Include="..\..\..\..\Downloads\General_Store.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="All_Functions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

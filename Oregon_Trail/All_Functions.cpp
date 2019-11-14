@@ -1,6 +1,6 @@
 // Denise Valencia
 // Dylan Galeazzo
-
+/*
 #include "General_Store.h"
 #include "Landmark.h"
 #include "Person.h"
@@ -66,7 +66,7 @@ int generate_random(int min, int max) {
   return min + rand() % ((max + 1) - min);
 }
 
-void travel_troubles(Person *person, Wagon *wagon) // randomly throw an ailment
+void travel_troubles(Person person, Wagon wagon) // randomly throw an ailment
 {
   HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
@@ -74,7 +74,7 @@ void travel_troubles(Person *person, Wagon *wagon) // randomly throw an ailment
   vector<string> ailment({"inadequite grass", "bad water", "exhaustion",
                           " measles", "a snakebite", "dysentery", "typhoid",
                           "cholera", "a broken leg", "a broken arm"});
-  randNum = generate_random(0, wagon->rations * 300);
+  randNum = generate_random(0, wagon.rations * 300);
 
   if (randNum <= 100) {
     int rand = generate_random(0, 9);
@@ -84,16 +84,16 @@ void travel_troubles(Person *person, Wagon *wagon) // randomly throw an ailment
       SetConsoleTextAttribute(hConsole, 15); // White text
     } else {
       SetConsoleTextAttribute(hConsole, 14); // Yellow text
-      cout << person->get_Name() << " is suffering of " << ailment[rand];
+      cout << person.get_Name() << " is suffering of " << ailment[rand];
       SetConsoleTextAttribute(hConsole, 15); // White text
     }
   } else if (randNum == 666) {
     // death of person
     int rand = generate_random(1, 9);
     SetConsoleTextAttribute(hConsole, 12); // Red text
-    cout << person->get_Name() << " has died of " << ailment[rand];
+    cout << person.get_Name() << " has died of " << ailment[rand];
     SetConsoleTextAttribute(hConsole, 15); // White text
-    wagon->kill_Person(generate_random(1, wagon->alive_Count()));
+    wagon.kill_Person(generate_random(1, wagon.alive_Count()));
   }
 }
 
@@ -427,3 +427,4 @@ void arrived_At_Landmark(Wagon* wagon, General_Store* store, Landmark* landmark)
 	  std::system("CLS"); // clear the command window
   }
 }
+*/

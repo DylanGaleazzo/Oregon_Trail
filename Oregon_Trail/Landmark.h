@@ -17,7 +17,7 @@ private:
 	int typeOfLandmark = 1;
 public:
 	Fort(string name, int miles, Wagon wagon);
-	int get_Landmark() { return typeOfLandmark; }
+	int get_Landmark();
 	ostream& operator<<(ostream& os);
 };
 
@@ -27,7 +27,7 @@ private:
 	int typeOfLandmark = 2;
 public:
 	River(string name, int miles, Wagon wagon);
-	int get_Landmark() { return typeOfLandmark; }
+	int get_Landmark();
 	ostream& operator<<(ostream& os);
 };
 
@@ -37,6 +37,6 @@ private:
 	int typeOfLandmark = 3;
 public:
 	Other(string name, int miles, Wagon wagon);
-	int get_Landmark() { return typeOfLandmark; }
+	int get_Landmark();
 	ostream& operator<<(ostream& os);
 };
