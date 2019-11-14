@@ -1,18 +1,19 @@
 //Dylan Galeazzo
 #pragma once
 #include "Wagon.h"
+<<<<<<< HEAD
 #include "Date.h"
+=======
+>>>>>>> master
 
 class LandMark
 {
-private:
+public:
 	Wagon wagon;
 	string name;
 	Date date;
-public:
-	string get_Name();
-	Wagon get_Wagon();
-	virtual bool isFort();
+	int miles;
+	virtual bool isFort() = 0;
 };
 
 class Fort:public LandMark

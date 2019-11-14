@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="People.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Wagon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -33,15 +30,36 @@
     <ClCompile Include="General_Store.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Person.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="DifferenceInOccupations.txt">
+    <Text Include="Change_Food_Rations.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="SelectingOccupation.txt">
+    <Text Include="Clothing.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="..\..\..\..\Downloads\RandomTextNotNeededInOwnTxtFile.txt">
+    <Text Include="Ammunition.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Dylans_Store.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Food.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Dylan_Talking.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Oxen.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Selecting_Occupation.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Difference_In_Occupations.txt">
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="Dylan_Talking.txt" />
@@ -54,9 +72,6 @@
     <Text Include="Oxen.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="People.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Wagon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -66,7 +81,11 @@
     <ClInclude Include="Date.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="General_Store.h">
+=======
+    <ClInclude Include="Person.h">
+>>>>>>> master
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

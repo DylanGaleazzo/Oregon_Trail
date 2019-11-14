@@ -1,6 +1,7 @@
 //Dylan Galeazzo
 #include "Landmark.h"
 
+<<<<<<< HEAD
 string LandMark::get_Name()
 {
 	return name;
@@ -30,3 +31,17 @@ Wagon LandMark::get_Wagon()
 // 	// cout << this->get_Wagon().get_Date() << endl << endl;
 // 	return os;
 // }
+=======
+ostream& Fort::operator<<(ostream& os)
+{
+	cout << this->name << endl;
+	cout << this->wagon.date << endl;
+}
+
+ostream& River::operator<<(ostream& os)
+{
+	string temp;
+	cout << "You are at the " << this->name << " crossing" << endl;
+	cout << this->wagon.date << endl << endl;
+}
+>>>>>>> master

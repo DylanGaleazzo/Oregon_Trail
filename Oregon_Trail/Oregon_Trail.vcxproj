@@ -127,6 +127,7 @@
     <ClCompile Include="game.cpp" />
     <ClCompile Include="General_Store.cpp" />
     <ClCompile Include="Landmark.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="People.cpp" />
     <ClCompile Include="Wagon.cpp" />
   </ItemGroup>
@@ -136,18 +137,32 @@
     <Text Include="Change_Food_Rations.txt" />
     <Text Include="Clothing.txt" />
     <Text Include="DifferenceInOccupations.txt" />
+=======
+    <ClCompile Include="Person.cpp" />
+    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Wagon.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Ammunition.txt" />
+    <Text Include="Change_Food_Rations.txt" />
+    <Text Include="Clothing.txt" />
+    <Text Include="Difference_In_Occupations.txt" />
+>>>>>>> master
     <Text Include="Dylans_Store.txt" />
     <Text Include="Dylan_Talking.txt" />
     <Text Include="Food.txt" />
     <Text Include="Oxen.txt" />
+<<<<<<< HEAD
     <Text Include="SelectingOccupation.txt" />
+=======
+>>>>>>> master
     <Text Include="Selecting_Occupation.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Date.h" />
     <ClInclude Include="General_Store.h" />
     <ClInclude Include="Landmark.h" />
-    <ClInclude Include="People.h" />
+    <ClInclude Include="Person.h" />
     <ClInclude Include="Wagon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
