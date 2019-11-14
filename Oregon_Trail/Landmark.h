@@ -1,17 +1,14 @@
 //Dylan Galeazzo
 #pragma once
-#include "Wagon.cpp"
+#include "Wagon.h"
 
 class LandMark
 {
-private:
+public:
 	Wagon wagon;
 	string name;
 	Date date;
-public:
-	string get_Name();
-	Wagon get_Wagon();
-	virtual bool isFort();
+	int miles;
 };
 
 class Fort:public LandMark
