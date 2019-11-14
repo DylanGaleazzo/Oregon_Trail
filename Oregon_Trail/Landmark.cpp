@@ -11,5 +11,5 @@ ostream& River::operator<<(ostream& os)
 {
 	string temp;
 	cout << "You are at the " << this->name << " crossing" << endl;
-	cout << this->wagon.date << endl << endl;	
+	cout << this->wagon.date << endl << endl;
 }

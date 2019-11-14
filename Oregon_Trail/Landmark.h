@@ -9,6 +9,7 @@ public:
 	string name;
 	Date date;
 	int miles;
+	virtual bool isFort() = 0;
 };
 
 class Fort:public LandMark
