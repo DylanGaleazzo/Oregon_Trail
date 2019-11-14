@@ -88,6 +88,7 @@ void Wagon::kill_person(int index)
 
 ostream &operator<<(ostream &os, const Wagon &w)
 {
+
     os << w.leader << " the " << w.occupation << "'s wagon.\n\n";
     for (int i = 0; i < w.people_alive; i++)
     {

@@ -77,7 +77,7 @@ void travel_troubles(People *person, Wagon *wagon) // randomly throw an ailment
 
 	int randNum;
 	vector<string> ailment({"inadequite grass", "bad water", "exhaustion", " measles", "a snakebite", "dysentery", "typhoid", "cholera", "a broken leg", "a broken arm"});
-	randNum = generate_random(0, wagon->get_Rations * 300);
+	randNum = generate_random(0, wagon.rations * 300);
 
 	if (randNum <= 100)
 	{
@@ -102,13 +102,13 @@ void travel_troubles(People *person, Wagon *wagon) // randomly throw an ailment
 		SetConsoleTextAttribute(hConsole, 12); // Red text
 		cout << person->get_Name() << " has died of " << ailment[rand];
 		SetConsoleTextAttribute(hConsole, 15); // White text
-		wagon->kill_Person();
+		wagon->kill_Person(generate_random(1, wagon.alive_count()));
 	}
 }
 
 int randomly_choose_person(Wagon *wagon)
 {
-	int numOfPeople = wagon->get_People_Alive();
+	int numOfPeople = wagon->alive_count();
 	if (numOfPeople > 1)
 	{
 		int rand = generate_random(2, numOfPeople);
@@ -137,7 +137,7 @@ void independence_general_store_text(Wagon *wagon, General_Store *store)
 
 	cout << "Before leaving Independence you" << endl
 		 << "should buy equipment and" << endl
-		 << "supplies.You have $" << wagon->get_Money() << " in" << endl
+		 << "supplies.You have $" << wagon.money << " in" << endl
 		 << "cash, but you don't have to" << endl
 		 << "spend it all now. " << endl
 		 << endl
@@ -172,7 +172,7 @@ void independence_general_store_text(Wagon *wagon, General_Store *store)
 			 << "4. Ammunition           $" << moneyTotalAmmunition << endl
 			 << "***********************************" << endl
 			 << endl
-			 << "Amount of money you have: " << wagon->get_Money() - moneyTotalSpent << endl
+			 << "Amount of money you have: " << wagon.money - moneyTotalSpent << endl
 			 << "Select 5 to exit the store" << endl
 			 << "What would you like to buy? ";
 		cin >> selection;
@@ -182,9 +182,9 @@ void independence_general_store_text(Wagon *wagon, General_Store *store)
 			std::system("CLS"); // clear the command window
 			read_text("Oxen.txt");
 			cin >> numOfItemsWanted;
-			if (store->get_Price_Oxen() * numOfItemsWanted + moneyTotalSpent <= wagon->get_Money())
+			if (store->get_Price_Oxen() * numOfItemsWanted + moneyTotalSpent <= wagon.money)
 			{
-				wagon->add_Oxen(numOfItemsWanted * 2);
+				wagon.oxen(numOfItemsWanted * 2);
 				moneyTotalOxen = numOfItemsWanted * store->get_Price_Oxen();
 			}
 			break;
@@ -192,9 +192,9 @@ void independence_general_store_text(Wagon *wagon, General_Store *store)
 			std::system("CLS"); // clear the command window
 			read_text("Food.txt");
 			cin >> numOfItemsWanted;
-			if (numOfItemsWanted * store->get_Price_Food() + moneyTotalSpent <= wagon->get_Money())
+			if (numOfItemsWanted * store->get_Price_Food() + moneyTotalSpent <= wagon.money)
 			{
-				wagon->add_Food(numOfItemsWanted);
+				wagon.food += numOfItemsWanted;
 				moneyTotalFood = numOfItemsWanted * store->get_Price_Food();
 			}
 			break;
@@ -202,9 +202,9 @@ void independence_general_store_text(Wagon *wagon, General_Store *store)
 			std::system("CLS"); // clear the command window
 			read_text("Clothing.txt");
 			cin >> numOfItemsWanted;
-			if (numOfItemsWanted * store->get_Price_Clothing() + moneyTotalSpent <= wagon->get_Money())
+			if (numOfItemsWanted * store->get_Price_Clothing() + moneyTotalSpent <= wagon.money)
 			{
-				wagon->add_Clothing(numOfItemsWanted);
+				wagon.clothing += numOfItemsWanted;
 				moneyTotalClothing = numOfItemsWanted * store->get_Price_Clothing();
 			}
 			break;
@@ -212,9 +212,9 @@ void independence_general_store_text(Wagon *wagon, General_Store *store)
 			std::system("CLS"); // clear the command window
 			read_text("Ammunition.txt");
 			cin >> numOfItemsWanted;
-			if (numOfItemsWanted * store->get_Price_Ammunition() + moneyTotalSpent <= wagon->get_Money())
+			if (numOfItemsWanted * store->get_Price_Ammunition() + moneyTotalSpent <= wagon.money)
 			{
-				wagon->add_Ammunition(numOfItemsWanted * 20);
+				wagon.ammunition += (numOfItemsWanted * 20);
 				moneyTotalAmmunition = numOfItemsWanted * store->get_Price_Ammunition();
 			}
 			break;
@@ -225,7 +225,7 @@ void independence_general_store_text(Wagon *wagon, General_Store *store)
 		moneyTotalSpent = moneyTotalOxen + moneyTotalFood + moneyTotalClothing + moneyTotalAmmunition;
 	} while (loop);
 
-	wagon->lose_Money(moneyTotalSpent);
+	wagon.money -= moneyTotalSpent;
 
 	cout << "Well then, you're ready" << endl
 		 << "to start. Good luck!" << endl
@@ -246,7 +246,7 @@ void general_store(Wagon *wagon, General_Store *store)
 	{
 		std::system("CLS"); // clear the command window
 		read_text("Dylans_Store.txt");
-		cout << "You have $" << wagon->get_Money() - store->get_Total() << " to spend." << endl
+		cout << "You have $" << wagon.money - store->get_Total() << " to spend." << endl
 			 << "What would you like to do? ";
 		cin >> choice;
 		switch (choice)
@@ -254,49 +254,49 @@ void general_store(Wagon *wagon, General_Store *store)
 		case 1:
 			std::system("CLS"); // clear the command window
 			read_text("Dylans_Store.txt");
-			cout << "You have $" << wagon->get_Money() << " to spend." << endl
+			cout << "You have $" << wagon.money << " to spend." << endl
 				 << "How many yoke would you like to buy? ";
 			cin >> numOfItemsWanted;
-			if (store->get_Price_Oxen() * numOfItemsWanted <= wagon->get_Money())
+			if (store->get_Price_Oxen() * numOfItemsWanted <= wagon.money)
 			{
-				wagon->add_Oxen(numOfItemsWanted * 2);
-				wagon->lose_Money(numOfItemsWanted * store->get_Price_Oxen());
+				wagon.oxen(numOfItemsWanted * 2);
+				wagon.money -= (numOfItemsWanted * store->get_Price_Oxen());
 			}
 			break;
 		case 2:
 			std::system("CLS"); // clear the command window
 			read_text("Dylans_Store.txt");
-			cout << "You have $" << wagon->get_Money() << " to spend." << endl
+			cout << "You have $" << wagon.money << " to spend." << endl
 				 << "How many pounds of food would you like to buy? ";
 			cin >> numOfItemsWanted;
-			if (numOfItemsWanted * store->get_Price_Food() <= wagon->get_Money())
+			if (numOfItemsWanted * store->get_Price_Food() <= wagon.money)
 			{
-				wagon->add_Food(numOfItemsWanted);
-				wagon->lose_Money(numOfItemsWanted * store->get_Price_Food());
+				wagon.food += (numOfItemsWanted);
+				wagon.money -= (numOfItemsWanted * store->get_Price_Food());
 			}
 			break;
 		case 3:
 			std::system("CLS"); // clear the command window
 			read_text("Dylans_Store.txt");
-			cout << "You have $" << wagon->get_Money() << " to spend." << endl
+			cout << "You have $" << wagon.money << " to spend." << endl
 				 << "How many sets of clothing would you like to buy? ";
 			cin >> numOfItemsWanted;
-			if (numOfItemsWanted * store->get_Price_Clothing() <= wagon->get_Money())
+			if (numOfItemsWanted * store->get_Price_Clothing() <= wagon.money)
 			{
-				wagon->add_Clothing(numOfItemsWanted);
-				wagon->lose_Money(numOfItemsWanted * store->get_Price_Clothing());
+				wagon.clothing += (numOfItemsWanted);
+				wagon.money -= (numOfItemsWanted * store->get_Price_Clothing());
 			}
 			break;
 		case 4:
 			std::system("CLS"); // clear the command window
 			read_text("Dylans_Store.txt");
-			cout << "You have $" << wagon->get_Money() << " to spend." << endl
+			cout << "You have $" << wagon.money << " to spend." << endl
 				 << "How many boxes would you like to buy? ";
 			cin >> numOfItemsWanted;
-			if (numOfItemsWanted * store->get_Price_Ammunition() <= wagon->get_Money())
+			if (numOfItemsWanted * store->get_Price_Ammunition() <= wagon.money)
 			{
-				wagon->add_Ammunition(numOfItemsWanted * 20);
-				wagon->lose_Money(numOfItemsWanted * store->get_Price_Ammunition());
+				wagon.ammunition += (numOfItemsWanted * 20);
+				wagon.money -= (numOfItemsWanted * store->get_Price_Ammunition());
 			}
 			break;
 		default:
@@ -314,11 +314,11 @@ void hunting(Wagon *wagon)
 	std::system("CLS"); // clear the command window
 	cout << "To hunt, type bang as fast as possible in hope of catching game." << endl;
 	cin >> shot;
-	wagon->lose_Ammunition();
+	wagon.ammunition--;
 	if (shot == "bang")
 	{
 		foodCaught = generate_random(0, 100);
-		wagon->add_Food(foodCaught);
+		wagon.food += (foodCaught);
 		cout << " You caught " << foodCaught << " pounds of food." << endl
 			 << "Press c to continue";
 		getline(cin, cont, 'c');
@@ -338,7 +338,7 @@ void change_Food_Rations(Wagon *wagon)
 
 	std::system("CLS"); // clear the command window
 	read_text("Change_Food_Rations.txt");
-	wagon->change_Rations(choice);
+	wagon.rations = choice;
 	std::system("CLS"); // clear the command window
 }
 
