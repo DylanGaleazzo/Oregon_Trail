@@ -36,12 +36,12 @@ double General_Store::get_Price_Clothing()
 
 double General_Store::get_Price_Ammunition()
 {
-	return priceAmmuntion;
+	return priceAmmunition;
 }
 
 double General_Store::change_Total(double moneyitem)
 {
-	total = total + item;
+	total = total + moneyitem;
 	return total;
 }
 
