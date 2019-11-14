@@ -12,23 +12,11 @@ Person::Person(string name) {
   this->is_alive = true;
 }
 
-<<<<<<< HEAD
 Person::~Person() { cout << name << " has died." << endl; }
 
 inline string Person::get_name() { return this->name; }
 
 void Person::set_name(string name) { this->name = name; }
-=======
-inline string Person::get_Name()
-{
-    return this->name;
-}
-
-void Person::set_Name(string name)
-{
-    this->name = name;
-}
->>>>>>> master
 
 inline bool Person::get_Alive_Status()
 {

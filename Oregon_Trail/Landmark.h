@@ -1,10 +1,7 @@
 //Dylan Galeazzo
 #pragma once
 #include "Wagon.h"
-<<<<<<< HEAD
 #include "Date.h"
-=======
->>>>>>> master
 
 class LandMark
 {
