@@ -62,6 +62,7 @@ Wagon::Wagon(string occupation)
 Wagon::~Wagon()
 {
     cout << "Wagon destroyed" << endl;
+
 }
 
 string Wagon::get_Occupation() { return occupation; }
