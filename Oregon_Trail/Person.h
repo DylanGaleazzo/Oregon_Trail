@@ -23,7 +23,7 @@ public:
     string get_name();
     void set_name(string);
     bool get_Alive_Status();
-    string status();
+    bool status();
 
     friend ostream &operator<<(ostream &os, const Person &p);
 };

@@ -43,13 +43,7 @@ ostream &operator<<(ostream &os, const Person &p)
     return os << p.name;
 }
 
-string Person::status()
+bool Person::status()
 {
-    string stat;
-    if ()
-    {
-        /* code */
-    }
-
-    stat <<
+    return ailment;
 }

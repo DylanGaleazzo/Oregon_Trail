@@ -91,8 +91,9 @@ ostream &operator<<(ostream &os, const Wagon &w)
     os << w.leader << " the " << w.occupation << "'s wagon.\n\n";
     for (int i = 0; i < w.people_alive; i++)
     {
-        if (!w.people[i].ailment)
-            os << w.people[i] << "\n";
+        // TODO: print whether each person has any ailments
+        // if (!(w.people[i].status()))
+        os << w.people[i] << "\n";
     }
 
     os << "Resources:"
