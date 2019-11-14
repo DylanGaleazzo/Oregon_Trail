@@ -30,7 +30,7 @@
     <ClCompile Include="Person.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Downloads\General_Store.cpp">
+    <ClCompile Include="General_Store.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -76,10 +76,10 @@
     <ClInclude Include="Person.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Downloads\General_Store.h">
+    <ClInclude Include="All_Functions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="All_Functions.h">
+    <ClInclude Include="General_Store.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
