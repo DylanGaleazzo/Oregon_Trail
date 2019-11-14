@@ -2,7 +2,7 @@
 #pragma once
 #include "Wagon.h"
 
-class LandMark
+class Landmark
 {
 public:
 	Wagon wagon;
@@ -12,14 +12,14 @@ public:
 	virtual bool isFort() = 0;
 };
 
-class Fort:public LandMark
+class Fort:public Landmark
 {
 public:
 	ostream& operator<<(ostream& os);
 	bool isFort() { return true; }
 };
 
-class River:public LandMark
+class River:public Landmark
 {
 public:
 	ostream& operator<<(ostream& os);
