@@ -7,8 +7,8 @@ using namespace std;
 class Wagon
 {
 private:
-    std::string occupation;
-	std::string leader;
+    string occupation;
+	string leader;
 
     int people_alive;
     Person people[5];
@@ -25,10 +25,14 @@ public:
 
     Wagon();
 <<<<<<< HEAD
+<<<<<<< HEAD
     Wagon(std::string occupation);
+=======
+    Wagon(string occupation);
+>>>>>>> fd1ee26627c9ae29bee667e4308f8e86bd6bd619
     ~Wagon();
-	std::string get_Occupation();
-	std::string get_Leader();
+	string get_Occupation();
+	string get_Leader();
     Person get_Person(int index);
     int alive_Count();
     void kill_Person(int index);
