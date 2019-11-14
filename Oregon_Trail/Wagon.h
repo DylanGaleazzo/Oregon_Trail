@@ -1,6 +1,7 @@
 #include "Person.h"
 #include "Date.h"
 #include <iostream>
+#pragma once
 using namespace std;
 
 class Wagon
