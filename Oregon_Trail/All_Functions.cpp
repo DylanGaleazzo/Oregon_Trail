@@ -66,7 +66,7 @@ int generate_random(int min, int max) {
   return min + rand() % ((max + 1) - min);
 }
 
-void travel_troubles(People *person, Wagon *wagon) // randomly throw an ailment
+void travel_troubles(Person *person, Wagon *wagon) // randomly throw an ailment
 {
   HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
