@@ -11,6 +11,7 @@
 #include <iomanip>  // std::setprecision
 #include <stdlib.h> // For clearing the command window
 #include <vector>   // For ailment vector
+#include <conio.h>
 
 void read_Text(string fileName) {
 	string line;
@@ -100,8 +101,8 @@ void travel_troubles(Wagon wagon) // randomly throw an ailment
 	}
 }
 
-int randomly_choose_person(Wagon* wagon) {
-	int numOfPeople = wagon->alive_Count();
+int randomly_choose_person(Wagon wagon) {
+	int numOfPeople = wagon.alive_Count();
 	if (numOfPeople > 1) {
 		int rand = generate_random(2, numOfPeople);
 		return rand;
@@ -111,7 +112,7 @@ int randomly_choose_person(Wagon* wagon) {
 	}
 }
 
-void independence_general_store_text(Wagon* wagon, General_Store* store) {
+void independence_general_store_text(Wagon wagon, General_Store* store) {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	string cont;
 	cout << "It is 1848. Your jumping off" << endl
@@ -121,13 +122,13 @@ void independence_general_store_text(Wagon* wagon, General_Store* store) {
 		<< "green grass for your oxen to" << endl
 		<< "eat and the weather will still" << endl
 		<< "be cool." << endl
-		<< "Press c to continue" << endl;
-	getline(cin, cont, 'c');
+		<< "Press enter to continue" << endl;
+	getline(cin, cont);
 	std::system("CLS"); // clear the command window
 
 	cout << "Before leaving Independence you" << endl
 		<< "should buy equipment and" << endl
-		<< "supplies.You have $" << wagon->money << " in" << endl
+		<< "supplies.You have $" << wagon.money << " in" << endl
 		<< "cash, but you don't have to" << endl
 		<< "spend it all now. " << endl
 		<< endl
@@ -162,7 +163,7 @@ void independence_general_store_text(Wagon* wagon, General_Store* store) {
 			<< "4. Ammunition           $" << moneyTotalAmmunition << endl
 			<< "***********************************" << endl
 			<< endl
-			<< "Amount of money you have: " << wagon->money - moneyTotalSpent
+			<< "Amount of money you have: " << wagon.money - moneyTotalSpent
 			<< endl
 			<< "Select 5 to exit the store" << endl
 			<< "What would you like to buy? ";
@@ -173,8 +174,8 @@ void independence_general_store_text(Wagon* wagon, General_Store* store) {
 			read_Text("Oxen.txt");
 			cin >> numOfItemsWanted;
 			if (store->get_Price_Oxen() * numOfItemsWanted + moneyTotalSpent <=
-				wagon->money) {
-				wagon->oxen += (numOfItemsWanted * 2);
+				wagon.money) {
+				wagon.oxen += (numOfItemsWanted * 2);
 				moneyTotalOxen = numOfItemsWanted * store->get_Price_Oxen();
 			}
 			break;
@@ -183,8 +184,8 @@ void independence_general_store_text(Wagon* wagon, General_Store* store) {
 			read_Text("Food.txt");
 			cin >> numOfItemsWanted;
 			if (numOfItemsWanted * store->get_Price_Food() + moneyTotalSpent <=
-				wagon->money) {
-				wagon->food += numOfItemsWanted;
+				wagon.money) {
+				wagon.food += numOfItemsWanted;
 				moneyTotalFood = numOfItemsWanted * store->get_Price_Food();
 			}
 			break;
@@ -193,8 +194,8 @@ void independence_general_store_text(Wagon* wagon, General_Store* store) {
 			read_Text("Clothing.txt");
 			cin >> numOfItemsWanted;
 			if (numOfItemsWanted * store->get_Price_Clothing() + moneyTotalSpent <=
-				wagon->money) {
-				wagon->clothing += numOfItemsWanted;
+				wagon.money) {
+				wagon.clothing += numOfItemsWanted;
 				moneyTotalClothing = numOfItemsWanted * store->get_Price_Clothing();
 			}
 			break;
@@ -203,8 +204,8 @@ void independence_general_store_text(Wagon* wagon, General_Store* store) {
 			read_Text("Ammunition.txt");
 			cin >> numOfItemsWanted;
 			if (numOfItemsWanted * store->get_Price_Ammunition() + moneyTotalSpent <=
-				wagon->money) {
-				wagon->ammunition += (numOfItemsWanted * 20);
+				wagon.money) {
+				wagon.ammunition += (numOfItemsWanted * 20);
 				moneyTotalAmmunition = numOfItemsWanted * store->get_Price_Ammunition();
 			}
 			break;
@@ -216,7 +217,7 @@ void independence_general_store_text(Wagon* wagon, General_Store* store) {
 			moneyTotalAmmunition;
 	} while (loop);
 
-	wagon->money -= moneyTotalSpent;
+	wagon.money -= moneyTotalSpent;
 
 	cout << "Well then, you're ready" << endl
 		<< "to start. Good luck!" << endl
@@ -227,7 +228,7 @@ void independence_general_store_text(Wagon* wagon, General_Store* store) {
 	getline(cin, cont, 'c');
 }
 
-void general_store(Wagon* wagon, General_Store* store) {
+void general_store(Wagon wagon, General_Store* store) {
 	bool loop = true;
 	int choice;
 	int numOfItemsWanted;
@@ -235,7 +236,7 @@ void general_store(Wagon* wagon, General_Store* store) {
 	do {
 		std::system("CLS"); // clear the command window
 		read_Text("Dylans_Store.txt");
-		cout << "You have $" << wagon->money - store->get_Total() << " to spend."
+		cout << "You have $" << wagon.money - store->get_Total() << " to spend."
 			<< endl
 			<< "What would you like to do? ";
 		cin >> choice;
@@ -243,45 +244,45 @@ void general_store(Wagon* wagon, General_Store* store) {
 		case 1:
 			std::system("CLS"); // clear the command window
 			read_Text("Dylans_Store.txt");
-			cout << "You have $" << wagon->money << " to spend." << endl
+			cout << "You have $" << wagon.money << " to spend." << endl
 				<< "How many yoke would you like to buy? ";
 			cin >> numOfItemsWanted;
-			if (store->get_Price_Oxen() * numOfItemsWanted <= wagon->money) {
-				wagon->oxen += (numOfItemsWanted * 2);
-				wagon->money -= (numOfItemsWanted * store->get_Price_Oxen());
+			if (store->get_Price_Oxen() * numOfItemsWanted <= wagon.money) {
+				wagon.oxen += (numOfItemsWanted * 2);
+				wagon.money -= (numOfItemsWanted * store->get_Price_Oxen());
 			}
 			break;
 		case 2:
 			std::system("CLS"); // clear the command window
 			read_Text("Dylans_Store.txt");
-			cout << "You have $" << wagon->money << " to spend." << endl
+			cout << "You have $" << wagon.money << " to spend." << endl
 				<< "How many pounds of food would you like to buy? ";
 			cin >> numOfItemsWanted;
-			if (numOfItemsWanted * store->get_Price_Food() <= wagon->money) {
-				wagon->food += (numOfItemsWanted);
-				wagon->money -= (numOfItemsWanted * store->get_Price_Food());
+			if (numOfItemsWanted * store->get_Price_Food() <= wagon.money) {
+				wagon.food += (numOfItemsWanted);
+				wagon.money -= (numOfItemsWanted * store->get_Price_Food());
 			}
 			break;
 		case 3:
 			std::system("CLS"); // clear the command window
 			read_Text("Dylans_Store.txt");
-			cout << "You have $" << wagon->money << " to spend." << endl
+			cout << "You have $" << wagon.money << " to spend." << endl
 				<< "How many sets of clothing would you like to buy? ";
 			cin >> numOfItemsWanted;
-			if (numOfItemsWanted * store->get_Price_Clothing() <= wagon->money) {
-				wagon->clothing += (numOfItemsWanted);
-				wagon->money -= (numOfItemsWanted * store->get_Price_Clothing());
+			if (numOfItemsWanted * store->get_Price_Clothing() <= wagon.money) {
+				wagon.clothing += (numOfItemsWanted);
+				wagon.money -= (numOfItemsWanted * store->get_Price_Clothing());
 			}
 			break;
 		case 4:
 			std::system("CLS"); // clear the command window
 			read_Text("Dylans_Store.txt");
-			cout << "You have $" << wagon->money << " to spend." << endl
+			cout << "You have $" << wagon.money << " to spend." << endl
 				<< "How many boxes would you like to buy? ";
 			cin >> numOfItemsWanted;
-			if (numOfItemsWanted * store->get_Price_Ammunition() <= wagon->money) {
-				wagon->ammunition += (numOfItemsWanted * 20);
-				wagon->money -= (numOfItemsWanted * store->get_Price_Ammunition());
+			if (numOfItemsWanted * store->get_Price_Ammunition() <= wagon.money) {
+				wagon.ammunition += (numOfItemsWanted * 20);
+				wagon.money -= (numOfItemsWanted * store->get_Price_Ammunition());
 			}
 			break;
 		default:
@@ -291,7 +292,7 @@ void general_store(Wagon* wagon, General_Store* store) {
 	} while (loop);
 }
 
-void hunting(Wagon* wagon) {
+void hunting(Wagon wagon) {
 	string shot;
 	int foodCaught;
 	string cont;
@@ -299,10 +300,10 @@ void hunting(Wagon* wagon) {
 	cout << "To hunt, type bang as fast as possible in hope of catching game."
 		<< endl;
 	cin >> shot;
-	wagon->ammunition--;
+	wagon.ammunition--;
 	if (shot == "bang") {
 		foodCaught = generate_random(0, 100);
-		wagon->food += (foodCaught);
+		wagon.food += (foodCaught);
 		cout << " You caught " << foodCaught << " pounds of food." << endl
 			<< "Press c to continue";
 		getline(cin, cont, 'c');
@@ -314,17 +315,17 @@ void hunting(Wagon* wagon) {
 	std::system("CLS"); // clear the command window
 }
 
-void change_Food_Rations(Wagon* wagon) {
+void change_Food_Rations(Wagon wagon) {
 	int choice;
 
 	std::system("CLS"); // clear the command window
 	read_Text("Change_Food_Rations.txt");
 	cin >> choice;
-	wagon->rations = choice;
+	wagon.rations = choice;
 	std::system("CLS"); // clear the command window
 }
 
-void is_Fort_Options(Wagon* wagon, General_Store* store, Landmark* landmark)
+void is_Fort_Options(Wagon wagon, General_Store* store, Landmark* landmark)
 {
 	int choice;
 	cout << landmark;
@@ -344,21 +345,21 @@ void is_Fort_Options(Wagon* wagon, General_Store* store, Landmark* landmark)
 	}
 }
 
-void ford_River(Wagon* wagon, int range) {
+void ford_River(Wagon wagon, int range) {
 	int chance = generate_random(1, range);
 	int bullets = generate_random(0, 10);
 	if (chance < 10) {
 		cout << "You did not make it across!" << endl;
-		wagon->~Wagon();
+		wagon.~Wagon();
 	}
 	else {
-		wagon->ammunition = wagon->ammunition - bullets;
+		wagon.ammunition = wagon.ammunition - bullets;
 		cout << "You made it across!" << endl <<
 			"But you lost " << bullets << " bullets." << endl;
 	}
 }
 
-void is_River_Options(Wagon* wagon, Landmark* landmark) {
+void is_River_Options(Wagon wagon, Landmark* landmark) {
 	int choice;
 	string temp;
 	int riverHeight = generate_random(3, 20);
@@ -384,13 +385,13 @@ void is_River_Options(Wagon* wagon, Landmark* landmark) {
 		ford_River(wagon, 300);
 		break;
 	case 3: // Ferry accross
-		wagon->money = wagon->money - 5.0;
+		wagon.money = wagon.money - 5.0;
 		cout << "You succeeded crossing the river!" << endl;
 		break;
 	}
 }
 
-void is_Other_Options(Wagon* wagon, Landmark* landmark) {
+void is_Other_Options(Wagon wagon, Landmark* landmark) {
 	int choice;
 	cout << landmark;
 	read_Text("Other_Options.txt");
@@ -411,7 +412,7 @@ void is_Other_Options(Wagon* wagon, Landmark* landmark) {
 	}
 }
 
-void arrived_At_Landmark(Wagon* wagon, General_Store* store, Landmark* landmark) {
+void arrived_At_Landmark(Wagon wagon, General_Store* store, Landmark* landmark) {
 	string temp;
 	if (landmark->typeOfLandmark == 1) {
 		is_Fort_Options(wagon, store, landmark);

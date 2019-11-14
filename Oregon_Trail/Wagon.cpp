@@ -3,7 +3,7 @@
 Wagon::Wagon()
 {
     occupation = "Banker";
-    money = 16000.00;
+    money = 1600.00;
     peopleAlive = 5;
     oxen = 0;
     food = 0;
@@ -19,15 +19,15 @@ Wagon::Wagon(string occupation)
 
     if (occupation == "Banker")
     {
-        money = 16000.00;
+        money = 1600.00;
     }
     else if (occupation == "Carpenter")
     {
-        money = 8000.00;
+        money = 800.00;
     }
     else if (occupation == "Farmer")
     {
-        money = 4000.00;
+        money = 400.00;
     }
     else
     {

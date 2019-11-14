@@ -6,12 +6,11 @@
 using namespace std;
 
 class Date {
-private:
+public:
 	int month;
 	int day;
 	int year;
-public:
 	Date();
 	void addWeek();
-	friend ostream& operator<<(ostream& os, const Date&);
+	friend ostream& operator<<(ostream& os, const Date);
 };
