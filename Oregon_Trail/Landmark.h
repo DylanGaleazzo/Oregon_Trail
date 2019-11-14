@@ -1,13 +1,11 @@
 //Dylan Galeazzo
-#pragma once
 #include "Wagon.h"
 
 class Landmark
 {
 public:
 	Wagon wagon;
-	string name;
-	Date date;
+	std::string name;
 	int miles;
 	virtual int isFort() = 0;
 };
@@ -15,6 +13,7 @@ public:
 class Fort:public Landmark
 {
 public:
+	Fort(string name, int miles, Wagon wagon);
 	std::ostream& operator<<(std::ostream& os);
 	int is_Fort() { return 1; }
 };
@@ -22,6 +21,7 @@ public:
 class River:public Landmark
 {
 public:
+	River(string name, int miles, Wagon wagon);
 	std::ostream& operator<<(std::ostream& os);
 	int is_Fort() { return 2; }
 };
@@ -29,6 +29,7 @@ public:
 class Other :public Landmark
 {
 public:
+	Other(string name, int miles, Wagon wagon);
 	std::ostream& operator<<(std::ostream& os);
 	int is_Fort() { return 3; }
 };

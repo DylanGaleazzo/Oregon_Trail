@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\Downloads\General_Store.cpp" />
     <ClCompile Include="All_Functions.cpp" />
     <ClCompile Include="Date.cpp" />
     <ClCompile Include="Landmark.cpp" />
