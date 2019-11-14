@@ -11,7 +11,7 @@ General_Store::General_Store()
 
 General_Store::~General_Store()
 {
-	cout << "leaving Dylan's General Store" << endl;
+
 }
 
 double General_Store::get_Total()

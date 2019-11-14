@@ -18,7 +18,7 @@ private:
 public:
 	Fort(string name, int miles, Wagon wagon);
 	int get_Landmark();
-	ostream& operator<<(ostream& os);
+	friend ostream& operator<<(ostream& os, Fort* fort);
 };
 
 class River:public Landmark

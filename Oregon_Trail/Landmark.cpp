@@ -38,10 +38,10 @@ Other::Other(string name, int miles, Wagon wagon)
 	this->wagon = wagon;
 }
 
-ostream& Fort::operator<<(ostream& os)
+ostream& operator<<(ostream& os, Fort* fort)
 {
-	os << "You have arrived at fort" << this->name << endl;
-	os << this->wagon.date << endl;
+	os << "You have arrived at" << fort->name << endl;
+	os << fort->wagon.date << endl;
 	return os;
 }
 

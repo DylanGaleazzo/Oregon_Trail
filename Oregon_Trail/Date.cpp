@@ -26,6 +26,6 @@ void Date::addWeek()
 ostream& operator<<(ostream& os, const Date date)
 {
 	string strMonth[12] = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
-	os << strMonth[date.month] << " " << date.day << ", " << date.year;
+	os << strMonth[date.month] << " " << date.day << ", " << date.year << endl;
 	return os;
 }

@@ -55,7 +55,7 @@ string set_occupation(void) {
 				read_Text("Difference_In_Occupations.txt");
 				cin >> cont;
 			default:
-				throw choice;
+				loop = true;
 			};
 			
 			std::system("CLS"); // clear the command window
@@ -63,9 +63,9 @@ string set_occupation(void) {
 
 		return occ;
 	}
-	catch (...)
+	catch (exception &e)
 	{
-		cout << "The value you entered wasn't an option" << endl;
+		cout << "You have died of dysentary." << endl;
 	}
 }
 
@@ -327,27 +327,41 @@ void change_Food_Rations(Wagon wagon) {
 	read_Text("Change_Food_Rations.txt");
 	cin >> choice;
 	wagon.rations = choice;
-	std::system("CLS"); // clear the command window
+	//std::system("CLS"); // clear the command window
 }
 
-void is_Fort_Options(Wagon wagon, General_Store* store, Landmark* landmark)
+void is_Fort_Options(Wagon wagon, General_Store* store, Fort* landmark)
 {
 	int choice;
+	bool loop = true;
+	string temp;
 	cout << landmark;
-	read_Text("Fort_Options.txt");
-	cin >> choice;
-	switch (choice)
+	do
 	{
-	case 1:
-		break;
-		break;
-	case 3:
-		change_Food_Rations(wagon);
-		break;
-	case 4:
-		general_store(wagon, store);
-		break;
-	}
+		std::system("CLS"); // clear the command window
+		read_Text("Fort_Options.txt");
+		cin >> choice;
+		switch (choice)
+		{
+		case 1:
+			loop = false;
+			break;
+		case 2:
+			cout << wagon << endl;
+			cout << "Press c to continue" << endl;
+			getline(cin, temp, 'c');
+			loop = true;
+			break;
+		case 3:
+			change_Food_Rations(wagon);
+			loop = true;
+			break;
+		case 4:
+			general_store(wagon, store);
+			loop = true;
+			break;
+		}
+	} while (loop);
 }
 
 void ford_River(Wagon wagon, int range) {
@@ -417,15 +431,15 @@ void is_Other_Options(Wagon wagon, Landmark* landmark) {
 	}
 }
 
-void arrived_At_Landmark(Wagon wagon, General_Store* store, Landmark* landmark) {
+void arrived_At_Landmark(Wagon wagon, General_Store* store, Fort* landmark) {
 	string temp;
-	if (landmark->typeOfLandmark == 1) {
+	if (landmark->get_Landmark() == 1) {
 		is_Fort_Options(wagon, store, landmark);
 		cout << "Press c to continue" << endl;
 		getline(cin, temp, 'c');
 		std::system("CLS"); // clear the command window
 	}
-	else if (landmark->typeOfLandmark == 2) {
+	else if (landmark->get_Landmark() == 2) {
 		is_River_Options(wagon, landmark);
 		cout << "Press c to continue" << endl;
 		getline(cin, temp, 'c');
