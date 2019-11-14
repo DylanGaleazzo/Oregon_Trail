@@ -9,19 +9,26 @@ public:
 	string name;
 	Date date;
 	int miles;
-	virtual bool isFort() = 0;
+	virtual int isFort() = 0;
 };
 
 class Fort:public Landmark
 {
 public:
-	ostream& operator<<(ostream& os);
-	bool isFort() { return true; }
+	std::ostream& operator<<(std::ostream& os);
+	int is_Fort() { return 1; }
 };
 
 class River:public Landmark
 {
 public:
-	ostream& operator<<(ostream& os);
-	bool isFort() { return false; }
+	std::ostream& operator<<(std::ostream& os);
+	int is_Fort() { return 2; }
+};
+
+class Other :public Landmark
+{
+public:
+	std::ostream& operator<<(std::ostream& os);
+	int is_Fort() { return 3; }
 };

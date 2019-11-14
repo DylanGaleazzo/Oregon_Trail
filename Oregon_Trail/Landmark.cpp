@@ -3,13 +3,19 @@
 
 ostream& Fort::operator<<(ostream& os)
 {
-	cout << this->name << endl;
+	cout << "You have arrived at " << this->name << endl;
 	cout << this->wagon.date << endl;
 }
 
 ostream& River::operator<<(ostream& os)
 {
 	string temp;
-	cout << "You are at the " << this->name << " crossing" << endl;
+	cout << "You have arrived at " << this->name << " River Crossing" << endl;
+	cout << this->wagon.date << endl << endl;
+}
+
+ostream& Other::operator<<(ostream& os)
+{
+	cout << "You have arrived at " << this->name << endl;
 	cout << this->wagon.date << endl << endl;
 }
