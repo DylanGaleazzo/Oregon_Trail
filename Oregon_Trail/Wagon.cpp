@@ -71,8 +71,15 @@ Person Wagon::get_Person(int index) { return people[index]; }
 int Wagon::alive_Count() { return peopleAlive; }
 void Wagon::kill_Person(int index)
 {
-    people[index].~Person();
-    peopleAlive--;
+    this->people[index].~Person();
+
+	for (int i = index; i < peopleAlive; i++)
+	{
+		this->people[i - 1] = people[i];
+	}
+
+    this->peopleAlive--;
+
 }
 
 ostream &operator<<(ostream &os, const Wagon &w)
