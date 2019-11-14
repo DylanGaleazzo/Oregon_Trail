@@ -10,18 +10,17 @@ struct ailment
 
 class Person
 {
-protected:
+private:
     string name;
-    bool is_alive;
+    bool isAlive;
     bool ailment;
     string ailments[5];
 
 public:
     Person();
     Person(string);
-    ~Person();
-    string get_name();
-    void set_name(string);
+    string get_Name();
+    void set_Name(string);
     bool get_Alive_Status();
     bool status();
 

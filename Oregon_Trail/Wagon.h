@@ -1,5 +1,5 @@
 #include "Person.h"
-
+#include "Date.h"
 #include <iostream>
 using namespace std;
 
@@ -20,6 +20,7 @@ public:
     int ammunition;
     int parts;
     int rations;
+	Date date;
 
     Wagon();
     Wagon(string occupation);

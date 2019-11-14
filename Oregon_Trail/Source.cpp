@@ -5,14 +5,14 @@ using namespace std;
 
 int main()
 {
-	cout << std::fixed;
-	cout << setprecision(2);
+	std::cout << std::fixed;
+	std::cout << setprecision(2);
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 	//********************************************************//
 	// create Wagon and people
 	Wagon wagon(set_occupation());
-	cout << wagon;
+	std::cout << wagon;
 	//********************************************************/
 	// getting first round of supplies
 	General_Store store();
