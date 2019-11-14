@@ -21,16 +21,16 @@
     <ClCompile Include="Wagon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="All_Functions.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Landmark.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Date.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="General_Store.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,6 +44,14 @@
     <Text Include="..\..\..\..\Downloads\RandomTextNotNeededInOwnTxtFile.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="Dylan_Talking.txt" />
+    <Text Include="Dylans_Store.txt" />
+    <Text Include="Food.txt" />
+    <Text Include="Clothing.txt" />
+    <Text Include="Change_Food_Rations.txt" />
+    <Text Include="Ammunition.txt" />
+    <Text Include="Selecting_Occupation.txt" />
+    <Text Include="Oxen.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="People.h">
@@ -56,6 +64,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Date.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="General_Store.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -123,20 +123,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="All_Functions.cpp" />
     <ClCompile Include="Date.cpp" />
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="General_Store.cpp" />
     <ClCompile Include="Landmark.cpp" />
     <ClCompile Include="People.cpp" />
-    <ClCompile Include="Source.cpp" />
     <ClCompile Include="Wagon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\..\..\Downloads\RandomTextNotNeededInOwnTxtFile.txt" />
+    <Text Include="Ammunition.txt" />
+    <Text Include="Change_Food_Rations.txt" />
+    <Text Include="Clothing.txt" />
     <Text Include="DifferenceInOccupations.txt" />
+    <Text Include="Dylans_Store.txt" />
+    <Text Include="Dylan_Talking.txt" />
+    <Text Include="Food.txt" />
+    <Text Include="Oxen.txt" />
     <Text Include="SelectingOccupation.txt" />
+    <Text Include="Selecting_Occupation.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Date.h" />
+    <ClInclude Include="General_Store.h" />
     <ClInclude Include="Landmark.h" />
     <ClInclude Include="People.h" />
     <ClInclude Include="Wagon.h" />
