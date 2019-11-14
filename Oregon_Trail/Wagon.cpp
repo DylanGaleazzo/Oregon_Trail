@@ -61,7 +61,6 @@ Wagon::Wagon(string occupation)
 
 Wagon::~Wagon()
 {
-    cout << "Wagon destroyed" << endl;
 
 }
 

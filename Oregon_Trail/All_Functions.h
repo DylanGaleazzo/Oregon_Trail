@@ -31,37 +31,42 @@ string set_occupation(void) {
 	char cont;
 	bool loop;
 	string occ;
+	try {
 
-	do {
-		read_Text("Selecting_Occupation.txt");
-		cin >> choice;
+		do {
+			read_Text("Selecting_Occupation.txt");
+			cin >> choice; 
+			std::system("CLS"); // clear the command window
 
-		std::system("CLS"); // clear the command window
+			switch (choice) {
+			case 1:
+				occ = "Banker";
+				loop = false;
+				break;
+			case 2:
+				occ = "Carpenter";
+				loop = false;
+				break;
+			case 3:
+				occ = "Farmer";
+				loop = false;
+				break;
+			case 4:
+				read_Text("Difference_In_Occupations.txt");
+				cin >> cont;
+			default:
+				throw choice;
+			};
+			
+			std::system("CLS"); // clear the command window
+		} while (loop);
 
-		switch (choice) {
-		case 1:
-			occ = "Banker";
-			loop = false;
-			break;
-		case 2:
-			occ = "Carpenter";
-			loop = false;
-			break;
-		case 3:
-			occ = "Farmer";
-			loop = false;
-			break;
-		case 4:
-			read_Text("Difference_In_Occupations.txt");
-			cin >> cont;
-		default:
-			loop = true;
-		};
-
-		std::system("CLS"); // clear the command window
-	} while (loop);
-
-	return occ;
+		return occ;
+	}
+	catch (...)
+	{
+		cout << "The value you entered wasn't an option" << endl;
+	}
 }
 
 int generate_random(int min, int max) {
