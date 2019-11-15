@@ -62,6 +62,15 @@
     <Text Include="Difference_In_Occupations.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="Fort_Options.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Other_Options.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="River_Options.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Wagon.h">

@@ -10,10 +10,9 @@ class Wagon
 private:
 	string occupation;
 	string leader;
-	int peopleAlive;
     Person people[5];
-
 public:
+	int peopleAlive;
   double money;
   int oxen;
   int food;

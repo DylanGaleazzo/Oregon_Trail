@@ -7,6 +7,7 @@ Person::Person()
     this->isAlive = true;
     this->ailment = false;
 }
+
 Person::Person(string name)
 {
     this->name = name;

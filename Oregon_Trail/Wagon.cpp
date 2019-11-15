@@ -9,7 +9,6 @@ Wagon::Wagon()
     food = 0;
     clothing = 0;
     ammunition = 0;
-    parts = 0;
 }
 
 Wagon::Wagon(string occupation)
@@ -40,7 +39,6 @@ Wagon::Wagon(string occupation)
     this->food = 0;
     this->clothing = 0;
     this->ammunition = 0;
-    this->parts = 0;
     this->rations = 1;
 
     string temp_name;
@@ -66,7 +64,7 @@ Wagon::~Wagon()
 
 string Wagon::get_Occupation() { return occupation; }
 string Wagon::get_Leader() { return leader; }
-Person Wagon::get_Person(int index) { return people[index]; }
+Person Wagon::get_Person(int index) { return people[index-1]; }
 int Wagon::alive_Count() { return peopleAlive; }
 void Wagon::kill_Person(int index)
 {
@@ -91,7 +89,7 @@ ostream &operator<<(ostream &os, const Wagon &w)
     }
 
     os << "Resources:"
-       << "\nOxen: " << w.oxen << "\nFood: " << w.food << "\nClothing: " << w.clothing << "\nAmmunition: " << w.ammunition << "\nParts: " << w.parts;
+       << "\nMoney: " << w.money << "\nOxen: " << w.oxen << "\nFood: " << w.food << "\nClothing: " << w.clothing << "\nAmmunition: " << w.ammunition;
 
     return os;
 }

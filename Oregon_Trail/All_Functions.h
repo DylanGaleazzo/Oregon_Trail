@@ -26,19 +26,23 @@ void read_Text(string fileName) {
 	fin.close(); // Close document being read
 }
 
-string set_occupation(void) {
+string set_occupation(void) 
+{
 	int choice;
 	char cont;
 	bool loop;
 	string occ;
-	try {
+	try 
+	{
 
-		do {
+		do 
+		{
 			read_Text("Selecting_Occupation.txt");
 			cin >> choice; 
 			std::system("CLS"); // clear the command window
 
-			switch (choice) {
+			switch (choice) 
+			{
 			case 1:
 				occ = "Banker";
 				loop = false;
@@ -59,7 +63,8 @@ string set_occupation(void) {
 			};
 			
 			std::system("CLS"); // clear the command window
-		} while (loop);
+		}
+		while (loop);
 
 		return occ;
 	}
@@ -69,44 +74,50 @@ string set_occupation(void) {
 	}
 }
 
-int generate_random(int min, int max) {
+int generate_random(int min, int max) 
+{
 	return min + rand() % ((max + 1) - min);
 }
 
-void travel_troubles(Wagon wagon) // randomly throw an ailment
+void travel_troubles(Wagon& wagon) // randomly throw an ailment
 {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 	int randNum;
-	vector<string> ailment({ "inadequite grass", "bad water", "exhaustion",
-							" measles", "a snakebite", "dysentery", "typhoid",
-							"cholera", "a broken leg", "a broken arm" });
+	vector<string> ailment({ " inadequite grass", " bad water", " exhaustion",
+							" measles", " a snakebite", " dysentery", " typhoid",
+							" cholera", " a broken leg", " a broken arm" });
 	randNum = generate_random(0, wagon.rations * 300);
 
-	if (randNum <= 100) {
+	if (randNum <= 100) 
+	{
 		int rand = generate_random(0, 9);
-		if (rand == 1) {
+		if (rand == 1) 
+		{
 			SetConsoleTextAttribute(hConsole, 10); // Green text
 			cout << ailment[rand];
 			SetConsoleTextAttribute(hConsole, 15); // White text
 		}
-		else {
+		else 
+		{
 			SetConsoleTextAttribute(hConsole, 14); // Yellow text
-			cout << wagon.get_Person(wagon.alive_Count()).get_Name() << " is suffering of " << ailment[rand];
+			cout << wagon.get_Person(wagon.alive_Count()).get_Name() << " is suffering of" << ailment[rand] << endl;
 			SetConsoleTextAttribute(hConsole, 15); // White text
 		}
 	}
-	else if (randNum == 666) {
+	else if (randNum == 666) 
+	{
 		// death of person
 		int rand = generate_random(1, 9);
 		SetConsoleTextAttribute(hConsole, 12); // Red text
-		cout << wagon.get_Person(wagon.alive_Count()).get_Name() << " has died of " << ailment[rand];
+		cout << wagon.get_Person(wagon.alive_Count()).get_Name() << " has died of " << ailment[rand] << endl;
 		SetConsoleTextAttribute(hConsole, 15); // White text
 		wagon.kill_Person(generate_random(1, wagon.alive_Count()));
 	}
 }
 
-int randomly_choose_person(Wagon wagon) {
+int randomly_choose_person(Wagon& wagon) 
+{
 	int numOfPeople = wagon.alive_Count();
 	if (numOfPeople > 1) {
 		int rand = generate_random(2, numOfPeople);
@@ -117,9 +128,11 @@ int randomly_choose_person(Wagon wagon) {
 	}
 }
 
-void independence_general_store_text(Wagon wagon, General_Store* store) {
+void independence_general_store_text(Wagon &wagon, General_Store* store) 
+{
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	string cont;
+	std::system("CLS"); // clear the command window
 	cout << "It is 1848. Your jumping off" << endl
 		<< "place for Oregon is Independence," << endl
 		<< "Missouri.You are leaving in" << endl
@@ -127,8 +140,8 @@ void independence_general_store_text(Wagon wagon, General_Store* store) {
 		<< "green grass for your oxen to" << endl
 		<< "eat and the weather will still" << endl
 		<< "be cool." << endl
-		<< "Press enter to continue" << endl;
-	getline(cin, cont);
+		<< "Press c to continue" << endl;
+	getline(cin, cont, 'c');
 	std::system("CLS"); // clear the command window
 
 	cout << "Before leaving Independence you" << endl
@@ -152,13 +165,13 @@ void independence_general_store_text(Wagon wagon, General_Store* store) {
 	double moneyTotalFood = 0.00;
 	double moneyTotalClothing = 0.00;
 	double moneyTotalAmmunition = 0.00;
-	double moneyTotalSpent = moneyTotalOxen + moneyTotalFood +
-		moneyTotalClothing + moneyTotalAmmunition;
+	double moneyTotalSpent = 0.0;
 	int selection;
 	double numOfItemsWanted;
 	bool loop = true;
 	// loop until they want to stop
-	do {
+	do 
+	{
 		cout << "***********************************" << endl
 			<< "Dylan's General Store" << endl
 			<< "***********************************" << endl
@@ -168,50 +181,53 @@ void independence_general_store_text(Wagon wagon, General_Store* store) {
 			<< "4. Ammunition           $" << moneyTotalAmmunition << endl
 			<< "***********************************" << endl
 			<< endl
-			<< "Amount of money you have: " << wagon.money - moneyTotalSpent
-			<< endl
+			<< "Amount of money you have: " << wagon.money << endl
 			<< "Select 5 to exit the store" << endl
 			<< "What would you like to buy? ";
 		cin >> selection;
-		switch (selection) {
+		switch (selection) 
+		{
 		case 1:
 			std::system("CLS"); // clear the command window
 			read_Text("Oxen.txt");
 			cin >> numOfItemsWanted;
-			if (store->get_Price_Oxen() * numOfItemsWanted + moneyTotalSpent <=
-				wagon.money) {
+			if (store->get_Price_Oxen() * numOfItemsWanted <= wagon.money) 
+			{
 				wagon.oxen += (numOfItemsWanted * 2);
 				moneyTotalOxen = numOfItemsWanted * store->get_Price_Oxen();
+				wagon.money -= moneyTotalOxen;
 			}
 			break;
 		case 2:
 			std::system("CLS"); // clear the command window
 			read_Text("Food.txt");
 			cin >> numOfItemsWanted;
-			if (numOfItemsWanted * store->get_Price_Food() + moneyTotalSpent <=
-				wagon.money) {
+			if (numOfItemsWanted * store->get_Price_Food() <= wagon.money) 
+			{
 				wagon.food += numOfItemsWanted;
 				moneyTotalFood = numOfItemsWanted * store->get_Price_Food();
+				wagon.money -= moneyTotalFood;
 			}
 			break;
 		case 3:
 			std::system("CLS"); // clear the command window
 			read_Text("Clothing.txt");
 			cin >> numOfItemsWanted;
-			if (numOfItemsWanted * store->get_Price_Clothing() + moneyTotalSpent <=
-				wagon.money) {
+			if (numOfItemsWanted * store->get_Price_Clothing() <= wagon.money) {
 				wagon.clothing += numOfItemsWanted;
 				moneyTotalClothing = numOfItemsWanted * store->get_Price_Clothing();
+				wagon.money -= moneyTotalClothing;
 			}
 			break;
 		case 4:
 			std::system("CLS"); // clear the command window
 			read_Text("Ammunition.txt");
 			cin >> numOfItemsWanted;
-			if (numOfItemsWanted * store->get_Price_Ammunition() + moneyTotalSpent <=
-				wagon.money) {
+			if (numOfItemsWanted * store->get_Price_Ammunition() <=wagon.money) 
+			{
 				wagon.ammunition += (numOfItemsWanted * 20);
 				moneyTotalAmmunition = numOfItemsWanted * store->get_Price_Ammunition();
+				wagon.money -= moneyTotalAmmunition;
 			}
 			break;
 		default:
@@ -222,8 +238,6 @@ void independence_general_store_text(Wagon wagon, General_Store* store) {
 			moneyTotalAmmunition;
 	} while (loop);
 
-	wagon.money -= moneyTotalSpent;
-
 	cout << "Well then, you're ready" << endl
 		<< "to start. Good luck!" << endl
 		<< "You have a long and" << endl
@@ -231,9 +245,10 @@ void independence_general_store_text(Wagon wagon, General_Store* store) {
 		<< "of you." << endl
 		<< "Press c to continue";
 	getline(cin, cont, 'c');
+	std::system("CLS"); // clear the command window
 }
 
-void general_store(Wagon wagon, General_Store* store) {
+void general_store(Wagon& wagon, General_Store* store) {
 	bool loop = true;
 	int choice;
 	int numOfItemsWanted;
@@ -297,7 +312,7 @@ void general_store(Wagon wagon, General_Store* store) {
 	} while (loop);
 }
 
-void hunting(Wagon wagon) {
+void hunting(Wagon& wagon) {
 	string shot;
 	int foodCaught;
 	string cont;
@@ -320,7 +335,7 @@ void hunting(Wagon wagon) {
 	std::system("CLS"); // clear the command window
 }
 
-void change_Food_Rations(Wagon wagon) {
+void change_Food_Rations(Wagon& wagon) {
 	int choice;
 
 	std::system("CLS"); // clear the command window
@@ -330,7 +345,7 @@ void change_Food_Rations(Wagon wagon) {
 	//std::system("CLS"); // clear the command window
 }
 
-void is_Fort_Options(Wagon wagon, General_Store* store, Fort* landmark)
+void is_Fort_Options(Wagon& wagon, General_Store* store, Landmark landmark)
 {
 	int choice;
 	bool loop = true;
@@ -350,26 +365,29 @@ void is_Fort_Options(Wagon wagon, General_Store* store, Fort* landmark)
 			cout << wagon << endl;
 			cout << "Press c to continue" << endl;
 			getline(cin, temp, 'c');
+			std::system("CLS"); // clear the command window
 			loop = true;
 			break;
 		case 3:
 			change_Food_Rations(wagon);
+			std::system("CLS"); // clear the command window
 			loop = true;
 			break;
 		case 4:
 			general_store(wagon, store);
+			std::system("CLS"); // clear the command window
 			loop = true;
 			break;
 		}
 	} while (loop);
 }
 
-void ford_River(Wagon wagon, int range) {
+void ford_River(Wagon& wagon, int range) {
 	int chance = generate_random(1, range);
 	int bullets = generate_random(0, 10);
 	if (chance < 10) {
 		cout << "You did not make it across!" << endl;
-		wagon.~Wagon();
+		wagon.peopleAlive = 0;
 	}
 	else {
 		wagon.ammunition = wagon.ammunition - bullets;
@@ -378,68 +396,83 @@ void ford_River(Wagon wagon, int range) {
 	}
 }
 
-void is_River_Options(Wagon wagon, Landmark* landmark) {
+void is_River_Options(Wagon& wagon, Landmark landmark) {
 	int choice;
 	string temp;
+	bool loop = true;
 	int riverHeight = generate_random(3, 20);
 	int riverWidth = generate_random(100, 700);
 
 	cout << landmark;
-	cout << "You must cross the river in" << endl <<
+	cout << "You must cross the river in" <<
 		"order to continue. The river\n" <<
 		"at this point is currently " << riverWidth <<
 		" feet across, and " << riverHeight <<
-		"feet deep in the middle.\n" << endl <<
+		" feet deep in the middle.\n" << endl <<
 		"Press c to continue" << endl;
 	getline(cin, temp, 'c');
-	read_Text("River_Otions.txt");
-	cin >> choice;
-
-	switch (choice)
-	{
-	case 1: // Ford river
-		ford_River(wagon, 100);
-		break;
-	case 2: // Caulk boat
-		ford_River(wagon, 300);
-		break;
-	case 3: // Ferry accross
-		wagon.money = wagon.money - 5.0;
-		cout << "You succeeded crossing the river!" << endl;
-		break;
-	}
+		std::system("CLS"); // clear the command window
+		read_Text("River_Options.txt");
+		cin >> choice;
+		switch (choice)
+		{
+		case 1: // Ford river
+			ford_River(wagon, 100);
+			break;
+		case 2: // Caulk boat
+			ford_River(wagon, 300);
+			break;
+		case 3: // Ferry accross
+			wagon.money = wagon.money - 5.0;
+			cout << "You succeeded crossing the river!" << endl;
+			break;
+		}
 }
 
-void is_Other_Options(Wagon wagon, Landmark* landmark) {
+void is_Other_Options(Wagon& wagon, Landmark landmark) {
 	int choice;
+	string temp;
+	bool loop = true;
 	cout << landmark;
-	read_Text("Other_Options.txt");
-	cin >> choice;
-	switch (choice)
+	do
 	{
-	case 1:
-		break;
-	case 2:
-		cout << wagon;
-		break;
-	case 3:
-		change_Food_Rations(wagon);
-		break;
-	case 4:
-		hunting(wagon);
-		break;
-	}
+		read_Text("Other_Options.txt");
+		cin >> choice;
+		switch (choice)
+		{
+		case 1:
+			loop = false;
+			break;
+		case 2:
+			cout << wagon << endl;
+			cout << "Press c to continue" << endl;
+			getline(cin, temp, 'c');
+			std::system("CLS"); // clear the command window
+			loop = true;
+			break;
+		case 3:
+			change_Food_Rations(wagon);
+			std::system("CLS"); // clear the command window
+			loop = true;
+			break;
+		case 4:
+			hunting(wagon);
+			std::system("CLS"); // clear the command window
+			loop = true;
+			break;
+		}
+	} while (loop);
 }
 
-void arrived_At_Landmark(Wagon wagon, General_Store* store, Fort* landmark) {
+void arrived_At_Landmark(Wagon& wagon, General_Store* store, Landmark landmark) {
 	string temp;
-	if (landmark->get_Landmark() == 1) {
+	if (landmark.typeOfLandmark == 1) {
 		is_Fort_Options(wagon, store, landmark);
 		cout << "Press c to continue" << endl;
 		getline(cin, temp, 'c');
 		std::system("CLS"); // clear the command window
 	}
-	else if (landmark->get_Landmark() == 2) {
+	else if (landmark.typeOfLandmark == 2) {
 		is_River_Options(wagon, landmark);
 		cout << "Press c to continue" << endl;
 		getline(cin, temp, 'c');
@@ -449,6 +482,6 @@ void arrived_At_Landmark(Wagon wagon, General_Store* store, Fort* landmark) {
 		is_Other_Options(wagon, landmark);
 		cout << "Press c to continue" << endl;
 		getline(cin, temp, 'c');
-		std::system("CLS"); // clear the command window
+		std::system("CLS"); // clear the commansd window
 	}
 }

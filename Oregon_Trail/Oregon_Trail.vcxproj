@@ -139,7 +139,10 @@
     <Text Include="Dylans_Store.txt" />
     <Text Include="Dylan_Talking.txt" />
     <Text Include="Food.txt" />
+    <Text Include="Fort_Options.txt" />
+    <Text Include="Other_Options.txt" />
     <Text Include="Oxen.txt" />
+    <Text Include="River_Options.txt" />
     <Text Include="Selecting_Occupation.txt" />
   </ItemGroup>
   <ItemGroup>
